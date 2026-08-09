@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nderez.id — Portal Kajian Islam Nusantara</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#0f5132',    /* Deep Forest Green */
+                        emerald: '#196c46',   /* Emerald Sage */
+                        gold: '#c5a059',      /* Morocco Gold */
+                        softgreen: '#e8efe9', /* Soft Green Tint */
+                        cream: '#faf8f5',     /* Cream Paper */
+                        tegalanbg: '#fffaf0'  /* Warm cream tinted */
+                    },
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'],
+                        body: ['Lora', 'serif'],
+                        ui: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #fcfcfc;
+            color: #1f2937;
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #196c46;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #196c46;
+            font-weight: 600;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.75rem;
+            line-height: 1.85;
+            font-size: 1.125rem;
+            color: #374151;
+        }
+        .article-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f5132;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .poci-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c5a059' stroke-width='0.75' stroke-linecap='round' stroke-linejoin='round' opacity='0.12'%3E%3Cpath d='M10 2v2M14 2v2M18 8a3 3 0 0 1 3 3 3 3 0 0 1-3 3h-1v-6h1zM4 10.5C4 9.12 5.12 8 6.5 8h11c1.38 0 2.5 1.12 2.5 2.5v3.31C20 17.23 17.23 20 13.81 20H10.5C6.36 20 4 16.64 4 12.5v-2zM4 12c-1.66 0-3-1.34-3-3s1.34-3 3-3'/%3E%3C/svg%3E");
+            background-size: 140px;
+        }
+        
+        .batik-tegal-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23196c46' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M40 0l40 40-40 40L0 40zM20 40l20-20 20 20-20 20z'/%3E%3Cpath d='M40 10l30 30-30 30-30-30z' fill-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230f5132' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4H-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="font-ui antialiased islamic-pattern">
+
+    <!-- TOP BAR -->
+    <div class="bg-forest text-softgreen py-2 text-xs font-medium tracking-wide border-b border-emerald/50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div>
+                <button onclick="openKirimTulisanModal()" class="inline-flex items-center gap-1.5 bg-gold/20 hover:bg-gold text-white px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider transition border border-gold/40 shadow-sm">
+                    <i data-lucide="send" class="w-3 h-3"></i> Kirim Tulisan
+                </button>
+            </div>
+            <div class="flex gap-4">
+                <span id="current-date"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER & NAVIGATION -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100 batik-tegal-pattern">
+        <div class="container mx-auto px-4 py-4 flex flex-col gap-4 md:gap-5">
+            
+            <!-- Logo & Tagline -->
+            <div class="cursor-pointer group flex items-center gap-4 w-full" onclick="goHome()">
+                <div class="bg-forest px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-sm flex items-center gap-3 group-hover:bg-emerald transition-colors duration-300">
+                    <svg class="w-7 h-7 md:w-8 md:h-8 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 2v2M14 2v2M18 8a3 3 0 0 1 3 3 3 3 0 0 1-3 3h-1v-6h1zM4 10.5C4 9.12 5.12 8 6.5 8h11c1.38 0 2.5 1.12 2.5 2.5v3.31C20 17.23 17.23 20 13.81 20H10.5C6.36 20 4 16.64 4 12.5v-2zM4 12c-1.66 0-3-1.34-3-3s1.34-3 3-3"/>
+                    </svg>
+                    <h1 class="font-heading text-2xl md:text-3xl font-bold text-white tracking-wide">nderez.id</h1>
+                </div>
+                <div class="hidden sm:block border-l-2 border-gray-200 pl-4 py-1">
+                    <p class="text-sm md:text-base font-heading italic text-forest font-semibold leading-tight mb-0.5">"Merawat Tradisi</p>
+                    <p class="text-sm md:text-base font-heading italic text-gray-500 font-medium leading-tight">sekaligus menerima perubahan"</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="w-full overflow-x-auto pb-2 md:pb-1 hide-scrollbar">
+                <ul class="flex justify-start items-center gap-x-5 md:gap-x-8 gap-y-3 whitespace-nowrap md:whitespace-normal md:flex-wrap text-sm font-medium text-gray-600" id="nav-menu">
+                    <li><button onclick="filterCategory('Semua', this)" class="nav-link active hover:text-emerald transition">Beranda</button></li>
+                    <li><button onclick="filterCategory('Al-Qur\'an', this)" class="nav-link hover:text-emerald transition">Al-Qur'an</button></li>
+                    <li><button onclick="filterCategory('Sufi', this)" class="nav-link hover:text-emerald transition">Sufi</button></li>
+                    <li><button onclick="filterCategory('Filsafat', this)" class="nav-link hover:text-emerald transition">Filsafat</button></li>
+                    <li><button onclick="filterCategory('Tokoh', this)" class="nav-link hover:text-emerald transition">Tokoh</button></li>
+                    <li><button onclick="filterCategory('Tradisi', this)" class="nav-link hover:text-emerald transition">Tradisi</button></li>
+                    <li><button onclick="filterCategory('Seni', this)" class="nav-link hover:text-emerald transition">Seni</button></li>
+                    <li>
+                        <button onclick="filterCategory('Tegalan', this)" class="nav-link !text-gold hover:!text-yellow-600 flex items-center gap-1.5 bg-tegalanbg px-3 py-1.5 rounded-md border border-gold/20 transition-all shadow-sm">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Ruang Tegalan
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container mx-auto px-4 py-10 min-h-screen">
+        
+        <!-- BERANDA (HOME VIEW) -->
+        <div id="home-view" class="fade-in block">
+            
+            <div id="category-header" class="hidden mb-10 text-center">
+                <h2 class="font-heading text-3xl md:text-4xl text-forest font-bold mb-3" id="category-title-text">Kategori</h2>
+                <div class="w-16 h-1 bg-emerald mx-auto rounded-full mb-4"></div>
+                <p id="category-synopsis" class="text-gray-600 max-w-2xl mx-auto font-body hidden"></p>
+            </div>
+
+            <section id="tegalan-spotlight" class="mb-14 hidden">
+                <!-- Injected via JS -->
+            </section>
+
+            <section id="hero-section" class="mb-14">
+                <!-- Injected via JS -->
+            </section>
+
+            <div class="flex flex-col lg:flex-row gap-10">
+                
+                <div class="lg:w-2/3">
+                    <div class="flex items-center justify-between mb-8 border-b border-gray-200 pb-4">
+                        <h3 class="font-heading text-2xl text-forest font-bold flex items-center gap-2">
+                            <i data-lucide="book-open" class="w-5 h-5 text-emerald"></i> 
+                            <span id="grid-title">Kajian Terbaru</span>
+                        </h3>
+                    </div>
+                    
+                    <div id="articles-grid" class="flex flex-col gap-8">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <aside class="lg:w-1/3 space-y-10">
+                    
+                    <div class="bg-white rounded-xl p-1 shadow-sm border border-gray-100 flex items-center focus-within:ring-2 focus-within:ring-emerald/20 transition-all">
+                        <input type="text" placeholder="Cari kajian..." class="w-full pl-4 pr-2 py-3 outline-none text-sm bg-transparent">
+                        <button class="p-3 bg-softgreen text-forest rounded-lg hover:bg-emerald hover:text-white transition">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <div class="bg-forest text-white rounded-2xl p-8 shadow-lg relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald rounded-full opacity-50 blur-2xl"></div>
+                        
+                        <div class="relative z-10">
+                            <h4 class="font-ui text-xs uppercase tracking-widest text-gold font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i> Mutiara Hikmah
+                            </h4>
+                            <i data-lucide="quote" class="w-8 h-8 text-emerald mb-4 opacity-70"></i>
+                            <blockquote class="font-heading italic text-lg md:text-xl leading-snug mb-4 text-cream">
+                                "Tegalarane Ora Tegapatine. Artinya tega melihat sakitnya atau perjuangan penderitanya, tapi tidak tega melihat kematian atau hancurnya sesama."
+                            </blockquote>
+                            <div class="flex items-center gap-3 pt-4 border-t border-emerald/50">
+                                <div class="w-10 h-10 rounded-full bg-emerald/30 flex items-center justify-center border border-emerald/50">
+                                    <i data-lucide="user" class="w-5 h-5 text-gold"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Atmo Tan Sidik</p>
+                                    <p class="text-xs text-softgreen opacity-80">Budayawan Tegal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <h4 class="font-heading text-xl text-forest font-bold mb-6 pb-3 border-b border-gray-100">Terpopuler</h4>
+                        <ul class="space-y-5" id="popular-sidebar">
+                            <!-- Injected via JS -->
+                        </ul>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+
+        <!-- ARTICLE VIEW (FULL SCREEN READER) -->
+        <div id="article-view" class="fade-in hidden">
+            
+            <div class="max-w-4xl mx-auto mb-6">
+                <button onclick="goHome()" class="flex items-center gap-2 text-sm text-gray-500 hover:text-emerald font-medium transition group bg-white border border-gray-200 px-4 py-2 rounded-full w-fit shadow-sm">
+                    <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Kembali
+                </button>
+            </div>
+
+            <article class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div id="reader-hero" class="relative w-full h-[40vh] md:h-[60vh] bg-gray-100">
+                    <!-- Image Injected via JS -->
+                </div>
+                
+                <div class="p-6 md:p-12 lg:px-16 lg:py-14 max-w-3xl mx-auto -mt-20 relative z-10 bg-white rounded-t-3xl md:rounded-t-none">
+                    <div id="reader-header" class="mb-10 text-center">
+                        <!-- Header Injected via JS -->
+                    </div>
+                    
+                    <div id="reader-content" class="article-content font-body text-gray-800">
+                        <!-- Content Injected via JS -->
+                    </div>
+                    
+                    <!-- Share Buttons Section -->
+                    <div class="mt-12 pt-8 border-t border-gray-100 flex flex-wrap gap-3 items-center justify-between">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-xs font-ui font-semibold text-gray-500 uppercase tracking-wider mr-2 flex items-center gap-1.5">
+                                <i data-lucide="share-2" class="w-4 h-4 text-emerald"></i> Bagikan Artikel:
+                            </span>
+                            <a id="share-whatsapp" href="#" target="_blank" class="px-3.5 py-2 rounded-xl bg-green-50 text-green-700 hover:bg-green-600 hover:text-white text-xs font-ui font-semibold flex items-center gap-1.5 transition shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp
+                            </a>
+                            <a id="share-facebook" href="#" target="_blank" class="px-3.5 py-2 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white text-xs font-ui font-semibold flex items-center gap-1.5 transition shadow-sm">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook
+                            </a>
+                            <a id="share-twitter" href="#" target="_blank" class="px-3.5 py-2 rounded-xl bg-gray-100 text-gray-800 hover:bg-black hover:text-white text-xs font-ui font-semibold flex items-center gap-1.5 transition shadow-sm">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X (Twitter)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- MODAL KIRIM TULISAN -->
+    <div id="kirim-tulisan-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4 fade-in">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="bg-forest text-white p-6 flex justify-between items-center relative overflow-hidden poci-pattern">
+                <div class="relative z-10">
+                    <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Open Submission</span>
+                    <h3 class="font-heading text-2xl font-bold">Panduan & Ketentuan Kirim Tulisan</h3>
+                </div>
+                <button onclick="closeKirimTulisanModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 md:p-8 overflow-y-auto font-body text-gray-700 space-y-6 text-sm md:text-base">
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald"></i> 1. Tema & Rubrik Tulisan
+                    </h4>
+                    <p class="leading-relaxed">Naskah harus sesuai dengan pilar rubrik <strong>nderez.id</strong>: Al-Qur'an & Tafsir, Sufisme Kontemporer, Filsafat & Logika, Jejak Tokoh, Tradisi Nusantara, Seni (Puisi & Cerpen), atau khususnya <strong>Ruang Tegalan</strong> (kearifan lokal Tegal & sekitarnya).</p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald"></i> 2. Ketentuan Teknis Naskah
+                    </h4>
+                    <ul class="list-disc pl-5 space-y-1.5 text-gray-600">
+                        <li>Panjang tulisan berkisar antara <strong>600 hingga 1.200 kata</strong>.</li>
+                        <li>Menggunakan bahasa Indonesia yang jernih, bernas, inklusif, dan sesuai dengan Ejaan Yang Disempurnakan (EYD).</li>
+                        <li>Naskah bersifat <strong>asli (orisinal)</strong>, belum pernah diterbitkan di media cetak maupun online lain, serta tidak sedang dalam proses seleksi di media lain.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald"></i> 3. Pengiriman & Lampiran
+                    </h4>
+                    <p class="leading-relaxed">Kirimkan naskah Anda dalam format dokumen (.doc / .docx) beserta lampiran singkat profil penulis (biodata naratif 50 kata) dan foto profil terbaru ke alamat email redaksi:</p>
+                    <div class="bg-tegalanbg border border-gold/30 p-4 rounded-xl mt-3 flex items-center justify-between">
+                        <span class="font-ui font-bold text-forest select-all">redaksi@nderez.id</span>
+                        <a href="mailto:redaksi@nderez.id" class="px-4 py-2 bg-forest text-white text-xs font-ui font-semibold rounded-lg hover:bg-emerald transition">Kirim Email Sekarang</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald"></i> 4. Proses Kurasi
+                    </h4>
+                    <p class="leading-relaxed">Tim editor nderez.id akan melakukan kurasi dalam waktu maksimal <strong>3 hingga 5 hari kerja</strong>. Apabila dalam waktu tersebut belum ada konfirmasi, naskah dipersilakan untuk dikirimkan ke media lain.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
+                <button onclick="closeKirimTulisanModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup Panduan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TENTANG KAMI -->
+    <div id="tentang-kami-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4 fade-in">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="bg-forest text-white p-6 flex justify-between items-center relative overflow-hidden poci-pattern">
+                <div class="relative z-10">
+                    <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Struktur Redaksi & Profil</span>
+                    <h3 class="font-heading text-2xl font-bold">Tentang Kami — nderez.id</h3>
+                </div>
+                <button onclick="closeTentangKamiModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 md:p-8 overflow-y-auto font-body text-gray-700 space-y-6 text-sm md:text-base">
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4 text-emerald"></i> Tentang nderez.id
+                    </h4>
+                    <p class="leading-relaxed">Portal literasi Islam kontemporer yang berdedikasi menghadirkan kajian inklusif, jernih, dan menenangkan. Menyelami samudra kearifan lokal Nusantara tanpa kehilangan pijakan pada tantangan era modern.</p>
+                </div>
+
+                <div class="border-t border-gray-100 pt-4 space-y-3">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-gray-50">
+                        <span class="font-ui font-semibold text-forest">Founder</span>
+                        <span class="md:col-span-2 text-gray-600">Muhamad Firdaus</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-gray-50">
+                        <span class="font-ui font-semibold text-forest">Chief Executive Officer</span>
+                        <span class="md:col-span-2 text-gray-600">A. Reza Wibowo, Rahmat Nur Sofyan, Fakhrur al-Izza</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-gray-50">
+                        <span class="font-ui font-semibold text-forest">Writers & Editors</span>
+                        <span class="md:col-span-2 text-gray-600">A. Reza Wibowo, M. Robby Firliansyah, Ahdina Diva, Malik Ibnu Zaman</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-gray-50">
+                        <span class="font-ui font-semibold text-forest">IT</span>
+                        <span class="md:col-span-2 text-gray-600">Muhamad Firdaus, Fakhrur al-Izza</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2">
+                        <span class="font-ui font-semibold text-forest">Email Redaksi</span>
+                        <span class="md:col-span-2 text-gray-600 select-all font-ui font-bold text-emerald">redaksi@nderez.id</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
+                <button onclick="closeTentangKamiModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PEDOMAN MEDIA SIBER -->
+    <div id="pedoman-siber-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4 fade-in">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="bg-forest text-white p-6 flex justify-between items-center relative overflow-hidden poci-pattern">
+                <div class="relative z-10">
+                    <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Regulasi & Standar Jurnalistik</span>
+                    <h3 class="font-heading text-2xl font-bold">Pedoman Media Siber — nderez.id</h3>
+                </div>
+                <button onclick="closePedomanSiberModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 md:p-8 overflow-y-auto font-body text-gray-700 space-y-6 text-sm md:text-base">
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald"></i> 1. Kemerdekaan & Verifikasi Berita
+                    </h4>
+                    <p class="leading-relaxed">Kemerdekaan berpendapat dan berekspresi adalah sarana hak asasi manusia. <strong>nderez.id</strong> menjunjung tinggi prinsip kehati-hatian, verifikasi berlapis, serta keberimbangan dalam menyajikan informasi dan kajian keislaman.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald"></i> 2. Hak Jawab & Koreksi Berita
+                    </h4>
+                    <p class="leading-relaxed">Setiap pembaca, narasumber, atau pihak yang dirugikan oleh pemberitaan memiliki hak jawab dan hak koreksi. Redaksi berkewajiban segera meralat, merevisi, atau menghapus bagian yang tidak akurat selambat-lambatnya 2x24 jam.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald"></i> 3. Isi Buatan Pengguna (User Generated Content)
+                    </h4>
+                    <p class="leading-relaxed">Redaksi tidak bertanggung jawab atas pemuatan komentar atau opini pribadi pembaca yang melanggar hukum, mengandung unsur SARA, kebencian, atau pornografi. Redaksi berhak menyunting atau menghapus konten pengguna yang melanggar.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
+                <button onclick="closePedomanSiberModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup Pedoman</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL KONTAK REDAKSI -->
+    <div id="kontak-redaksi-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden p-4 fade-in">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="bg-forest text-white p-6 flex justify-between items-center relative overflow-hidden poci-pattern">
+                <div class="relative z-10">
+                    <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Hubungi Kami</span>
+                    <h3 class="font-heading text-2xl font-bold">Kontak Redaksi — nderez.id</h3>
+                </div>
+                <button onclick="closeKontakRedaksiModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 md:p-8 overflow-y-auto font-body text-gray-700 space-y-6 text-sm md:text-base">
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4 text-emerald"></i> Alamat Email Resmi
+                    </h4>
+                    <p class="leading-relaxed">Untuk pengiriman naskah artikel, siaran pers, kritik, saran, maupun pertanyaan kerja sama, silakan hubungi kami melalui:</p>
+                    <div class="bg-tegalanbg border border-gold/30 p-4 rounded-xl mt-3 flex items-center justify-between">
+                        <span class="font-ui font-bold text-forest select-all">redaksi@nderez.id</span>
+                        <a href="mailto:redaksi@nderez.id" class="px-4 py-2 bg-forest text-white text-xs font-ui font-semibold rounded-lg hover:bg-emerald transition">Kirim Email</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-emerald"></i> Ruang Redaksi & Domisili
+                    </h4>
+                    <p class="leading-relaxed">Basis redaksi utama <strong>nderez.id</strong> berpusat di wilayah Tegal, Jawa Tengah. Menyelami nilai-nilai tradisi lokal nusantara dengan sudut pandang keislaman yang mencerahkan.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-forest mb-2 flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-emerald"></i> Jam Kerja Operasional
+                    </h4>
+                    <p class="leading-relaxed">Senin s.d. Jumat: Pukul 09.00 - 16.00 WIB.<br>Sabtu & Minggu: Libur / Respons Terbatas.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
+                <button onclick="closeKontakRedaksiModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup Kontak</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0a3822] text-softgreen pt-16 pb-8 border-t-[6px] border-emerald mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-2">
+                    <h2 class="font-heading text-3xl text-white font-bold mb-4">nderez.id</h2>
+                    <p class="text-sm leading-relaxed max-w-md opacity-80 mb-6 font-body">Portal literasi Islam kontemporer yang berdedikasi menghadirkan kajian inklusif, jernih, dan menenangkan. Menyelami samudra kearifan lokal Nusantara tanpa kehilangan pijakan pada tantangan era modern.</p>
+                    
+                    <div class="flex gap-3">
+                        <a href="https://facebook.com/sharer/sharer.php?u=https://nderez.id" target="_blank" title="Bagikan ke Facebook" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-white transition shadow-sm">
+                            <svg class="w-4 h-4 fill-current text-softgreen" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?text=Portal%20Kajian%20Islam%20Nusantara&url=https://nderez.id" target="_blank" title="Bagikan ke X (Twitter)" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-white transition shadow-sm">
+                            <svg class="w-4 h-4 fill-current text-softgreen" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text=Kunjungi%20Portal%20Kajian%20Islam%20https://nderez.id" target="_blank" title="Bagikan ke WhatsApp" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-white transition shadow-sm">
+                            <svg class="w-4 h-4 fill-current text-softgreen" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" title="Kunjungi Instagram nderez.id" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-white transition shadow-sm">
+                            <svg class="w-4 h-4 fill-current text-softgreen" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-ui text-white font-semibold mb-4 uppercase tracking-wider text-sm">Rubrik Utama</h3>
+                    <ul class="space-y-2 text-sm opacity-80">
+                        <li><a href="#" onclick="filterCategory('Al-Qur\'an')" class="hover:text-gold transition">Al-Qur'an & Tafsir</a></li>
+                        <li><a href="#" onclick="filterCategory('Sufi')" class="hover:text-gold transition">Sufisme Kontemporer</a></li>
+                        <li><a href="#" onclick="filterCategory('Filsafat')" class="hover:text-gold transition">Filsafat & Logika</a></li>
+                        <li><a href="#" onclick="filterCategory('Tokoh')" class="hover:text-gold transition">Jejak Tokoh</a></li>
+                        <li><a href="#" onclick="filterCategory('Tradisi')" class="hover:text-gold transition">Tradisi Nusantara</a></li>
+                        <li><a href="#" onclick="filterCategory('Seni')" class="hover:text-gold transition">Seni (Puisi & Cerpen)</a></li>
+                        <li><a href="#" onclick="filterCategory('Tegalan')" class="text-gold hover:text-white transition flex items-center gap-2"><i data-lucide="star" class="w-3 h-3"></i> Ruang Tegalan</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-ui text-white font-semibold mb-4 uppercase tracking-wider text-sm">Informasi</h3>
+                    <ul class="space-y-2 text-sm opacity-80">
+                        <li><a href="#" onclick="openTentangKamiModal()" class="hover:text-gold transition">Tentang Kami</a></li>
+                        <li><a href="#" onclick="openPedomanSiberModal()" class="hover:text-gold transition">Pedoman Media Siber</a></li>
+                        <li><a href="#" onclick="openKirimTulisanModal()" class="hover:text-gold transition">Kirim Tulisan</a></li>
+                        <li><a href="#" onclick="openKontakRedaksiModal()" class="hover:text-gold transition">Kontak Redaksi</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60">
+                <p>&copy; 2026 nderez.id. Seluruh Hak Cipta Dilindungi.</p>
+                <p>Didukung oleh Notion Database API</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('id-ID', dateOptions);
+
+        const database = [
+            {
+                id: 7,
+                title: "Santet dalam Al-Qur’an: Kajian Atas Surat al-Falaq ayat 3 dan al-Baqarah Ayat 102",
+                category: "Al-Qur'an",
+                date: "9 Agustus 2026",
+                author: "Redaksi nderez.id",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `
+                    <p>Pada bulan November lalu ada seorang youtuber yang menantang seluruh dukun di Indonesia bahwa siapa saja yang bisa menyantetnya maka akan diberi hadiah satu mobil Alphard. Youtuber ini berani menantang para dukun karena menganggap bahwa santet itu tidak ada dan ia sangat geram dengan maraknya dukun penipu yang merugikan masyarakat bahkan sampai menghilangkan nyawa. Beberapa orang percaya pengobatan alternatif yang ada di dukun-dukun tersebut. Namun, karena menipu sehingga tidak berefek apa-apa dan setelah penyakitnya tambah parah baru di bawa ke dokter tapi sudah terlambat dan meninggal dunia.</p>
+                    <p>Sampai sekarang youtuber itu masih bernafas dengan sehat dan memang belum terbukti ada yang bisa menyantetnya. Apakah hal ini menunjukkan bahwa santet memang tidak ada? Terlepas dari konteks itu, apakah benar bahwa santet itu tidak ada? Tampaknya orang itu tidak sadar bahwa di dalam al-Qur’an ada ayat-ayat yang membicarakan tentang sihir, nanti kita bahas lebih lanjut apakah santet ini termasuk sihir atau bukan.</p>
+                    
+                    <h2>Sejarah Santet di Indonesia</h2>
+                    <p>Santet secara bahasa berasal dari kepanjangan mesisan benthet yang bermakna sekalian retak akibat benturan keras yang biasanya digunakan untuk hal negatif, seperti mengirim penyakit, dsb. Kata itu juga berasal dari kepanjangan mesisan kanthet yang bermakna sekalian lengket yang biasanya digunakan untuk pelet (Ening Herniti: 2012,391).</p>
+                    <p>Sebenarnya khusus istilah santet ini berasal dari Jawa Timur. Namun, karena istilah tersebut lebih terkenal di masyarakat Indonesia jadi digunakan untuk aktivitas ritual tersebut. Kalau di Jawa Tengah disebut dengan tenung, Bali disebut desti, tehun, atau tenang jana, di Sumatera Barat disebut biring atau tinggam, Sumatera Utara disebut begu ganjang, Papua disebut suangi, di Kalimantan dikenal istilah parangmaya. Bahkan di luar negeri pun ada, yaitu dengan istilah voodoo.</p>
+                    <p>Dengan demikian santet ini tidak bisa dikatakan milik Indonesia saja, buktinya di Afrika ada istilahnya tersendiri. Jadi ada di setiap bangsa tanpa melihat suku, adat dan agama. Hal ini dinyatakan oleh (alm) Prof. Dr. Edi Ekadjati pakar sejarah dari UNPAD Bandung bahwa ilmu teluh atau santet adalah warisan masa lampau yang terus bertahan dalam kehidupan masyarakat Sunda hingga sekarang.</p>
+                    <p>Beliau merujuk pada sebuah dokumen abad ke-6 yang tertulis dalam daun lontar dengan nama Sanghyang Siksa Kandang Karesian—semacam ensiklopedi adat-istiadat orang Sunda dan sekarang dokumen itu ada di Perpustakaan Nasional. Dalam dokumen tersebut dijelaskan bahwa teluh adalah perasaan sakit hati, murung, dan tidak senang yang dialihkan kepada orang lain (A. Masruri: 2010, 2,5-8).</p>
+                    <p>Kenapa di Jawa Timur istilah santet ini muncul dan banyak praktisinya? Hal ini diyakini terkait erat dengan pergolakan politik menjelang runtuhnya kerajaan Majapahit, yakni penyerangan dari Demak. Penyerangan Demak saat itu sebenarnya bukan dari kemauan pribadi Radeh Patah, apalagi Radeh Patah sendiri sudah diperingati oleh Putri Campa yang merupakan Ibu kandungnya bahwa Raja Brawijaya V adalah Ayah tirinya sendiri. Namun, karena para panglima sudah tidak bisa diajak kompromi akhirnya terjadilah penyerbuan itu. akibatnya, pasukan Majapahit dan sebagian penduduk menyingkir ke Barat di sekitar gunung lawu dan sebagiannya lagi menyingkir ke Timur di daerah gunung Bromo, Semeru, dan Tengger sampai ke Bali. Raja Brawijaya V sendiri menyingkir ke Gunung lawu dan bertapa di sana sampai mokswa (A. Masruri, 2010: 5-7).</p>
+
+                    <h2>Jadi, Apakah Santet itu Nyata</h2>
+                    <p>Pertanyaan selanjutnya adalah apakah santet itu ada? Saya akan dominan membahasnya dari sisi teologis melalui teks keagamaan. Jawabannya jika merujuk ke sejarah bahwa rasulullah juga pernah di santet, dalam artian ada orang yang berusaha mencelakainya lewat mantra-mantra dan media tertentu. Dengan demikian praktek semacam santet sejak dulu sudah ada. Lalu siapa yang mengajari ilmu ini? Jawabannya setan, dalam al-Qur’an jelas dinyatakan bahwa setan yang mengajari sihir.</p>
+                    <p>Hal ini dijelaskan dalam tafsir tematiknya al-Shabuni yang berjudul Rawa’i al-Bayan fi Tafsir al-Ahkam bahwa Sihir sudah ada di era Nabi Sulaiman bahkan beliau dituduh sebagai penyihir, maka dijawab dengan ayat al-Baqarah 102:</p>
+                    
+                    <blockquote class="border-l-4 border-gold pl-4 my-4 text-forest font-heading text-base leading-relaxed">
+                        وَٱتَّبَعُوا۟ مَا تَتْلُوا۟ ٱلشَّيَٰطِينُ عَلَىٰ مُلْكِ سُلَيْمَٰنُ ۖ وَمَا كَفَرَ سُلَيْمَٰنُ وَلَٰكِنَّ ٱلشَّيَٰطِينَ كَفَرُوا۟ يُعَلِّمُونَ ٱلنَّاسَ ٱلسِّحْرَ وَمَآ أُنزِلَ عَلَى ٱلْمَلَكَيْنِ بِبَابِلَ هَٰرُوتَ وَمَٰرُوتَ ۚ وَمَا يُعَلِّمَانِ مِنْ أَحَدٍ حَتَّىٰ يَقُولَآ إِنَّمَا نَحْنُ فِتْنَةٌ فَلَا تَكْفُرْ ۖ فَيَتَعَلَّمُونَ مِنْهُمَا مَا يُفَرِّقُونَ بِهِۦ بَيْنَ ٱلْمَرْءِ وَزَوْجِهِۦ ۚ وَمَا هُم بِضَآرِّينَ بِهِۦ مِنْ أَحَدٍ إِلَّا بِإِذْنِ ٱللَّهِ ۚ وَيَتَعَلَّمُونَ مَا يَضُرُّهُمْ وَلَا يَنفَعُهُمْ ۚ وَلَقَدْ عَلِمُوا۟ لَمَنِ ٱشْتَرَىٰهُ مَا لَهُۥ فِى ٱلْءَاخِرَةِ مِنْ خَلَٰقٍ ۚ وَلَبِئْسَ مَا شَرَوْا۟ بِهِۦٓ أَنفُسَهُمْ ۚ لَوْ كَانُوا۟ يَعْلَمُونَ
+                    </blockquote>
+                    
+                    <p><strong>Artinya:</strong> “Dan mereka mengikuti apa yang dibaca oleh syaitan-syaitan pada masa kerajaan Sulaiman (dan mereka mengatakan bahwa Sulaiman itu mengerjakan sihir), padahal Sulaiman tidak kafir (tidak mengerjakan sihir), hanya syaitan-syaitan lah yang kafir (mengerjakan sihir). Mereka mengajarkan sihir kepada manusia dan apa yang diturunkan kepada dua orang malaikat di negeri Babil yaitu Harut dan Marut, sedang keduanya tidak mengajarkan (sesuatu) kepada seorangpun sebelum mengatakan: "Sesungguhnya kami hanya cobaan (bagimu), sebab itu janganlah kamu kafir". Maka mereka mempelajari dari kedua malaikat itu apa yang dengan sihir itu, mereka dapat menceraikan antara seorang (suami) dengan isterinya. Dan mereka itu (ahli sihir) tidak memberi mudharat dengan sihirnya kepada seorangpun, kecuali dengan izin Allah. Dan mereka mempelajari sesuatu yang tidak memberi mudharat kepadanya dan tidak memberi manfaat. Demi, sesungguhnya mereka telah meyakini bahwa barangsiapa yang menukarnya (kitab Allah) dengan sihir itu, tiadalah baginya keuntungan di akhirat, dan amat jahatlah perbuatan mereka menjual dirinya dengan sihir, kalau mereka mengetahui.”</p>
+                    <p>Justru yang mengajari sihir kepada manusia itu setan, di antaranya bisa melihat hal gaib. Dalam ayat itu juga dijelaskan bahwa Allah menurunkan Harut Marut; ada yang mengatakan dia orang sholeh, ada juga yang menyatakan malaikat yang pada intinya keduanya mengajarkan sihir kepada manusia dalam rangka untuk meluruskan atau digunakan dalam kebenaran dan juga untuk membedakan antara sihir dan mukjizat, bisa dibilang apa yang dibawa oleh Harut Marut ini adalah ilmu putih. Sedangkan kalau setan mengajarkan sihir kepada manusia untuk menyakiti manusia lainnya, memisahkan suami dari keluarganya, memunculkan konflik dalam sebuah keluarga (al-Shabuni, 1980: 69-70)</p>
+                    <p>Sedangkan apakah santet ada sekarang? jawabannya tergantung, apakah masih ada orang yang mempertahankan ilmu itu dan mempraktikannya atau tidak. Yang jelas pada kenyataannya masih banyak orang-orang di zaman sekarang yang mengaku terkena santet karena dokter kebingungan dalam mendiagnosisnya. Saya pernah diceritain nenek saya bahwa dulu waktu masih muda ketika beliau di Jakarta ada yang tidak suka dengan usaha milik nenek saya dan mengirimkan (yang saya ingat) cindil atau anak tikus yang dimasukkan ke tangannya. Terlepas benar atau tidak cerita beliau, saya mengonfirmasinya pada ibu saya sendiri dan beliau mengiyakan bahwa nenek memang dulu pernah usaha di Jakarta.</p>
+                    <p>Dalam al-Shawi Hasyiyahnya Tafsir al-Jalalayn di surat al-Falaq ayat 3:</p>
+                    
+                    <blockquote class="border-l-4 border-gold pl-4 my-4 text-forest font-heading text-base leading-relaxed">
+                        وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ
+                    </blockquote>
+                    
+                    <p>Al-Shawi menjelaskan bahwa Rasul pernah disihir oleh Labid bin Ashom, seorang Yahudi dengan menggunakan media sisir dan juga gigi Rasul. Media tersebut diambil dari pelayan Yahudi yang diutus oleh mereka. Barang-barang tersebut dikumpulkan jadi satu dan diikat sebanyak 11 simpul dan diletakkan di Sumur Dzarwan. Rasul pun menyuruh Ali, Zubayr dan Amar bin Yasir untuk megalirkan air ke sungai tersebut agar sihirnya batal. Labid ini dibayar 3 dinar untuk menyihir atau menyantet Rasul (al-Shawi, 2006: Jld 4, 451-452).</p>
+                    <p>Lho kok rasul bisa disantet? Bukannya beliau maksum. Ibn Hajar menyatakan bahwa memang benar rasul maksum, tapi juga bukanlah dewa, beliau juga bisa sakit seperti manusia biasa lainnya. Maka hal ini tidak menurunkan derajat kenabian beliau. Selain itu juga buat ibroh atau pelajaran untuk umatnnya bahwa Rasul juga bisa terkena sihir dan di zaman dulu memang ada praktik sihir dengan model seperti ini.</p>
+                    <p>Dengan demikian santet modern sama halnya dengan ritual seperti yang dilakukan Labid kepada Rasulullah karena memang ritual teknisnya sama. Mau percaya atau tidak berdasarkan riwayatnya demikian, terlepas saat ini masih ada yang bisa melakukannya atau tidak. Dalam hal ini para penipu yang seolah-olah bisa menyantet demi keuntungan pribadi tidak masuk dalam pembahasan ini.</p>
+                    
+                    <h2>Referensi:</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-600">
+                        <li>A. Masruri. The Secret of Santet, Jakarta: Visimedia, 2010.</li>
+                        <li>Ening Herniti, “Kepercayaan Masyarakat Jawa Terhadap Santet, Wangsit, dan Roh Menurut Perspektif Edwards Evans-Pritchard” dalam THAQĀFIYYĀT, Vol. 13, No. 2, 2012, h. 384-400.</li>
+                        <li>Ahmad bin Muhammad al-Shawi. Hasyiyah al-Shawi, Beirut: Dar al-Fikr al-Ilmiyah, 2006.</li>
+                        <li>Muhammad Ali al-Shabuni. Rawa’i al-Bayan fi Tafsir al-Ahkam, Damaskus: Maktabah al-Ghazali, 1980.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 1,
+                title: "Geliat Kajian al-Qur’an di Tegal",
+                category: "Tegalan",
+                date: "8 Agustus 2026",
+                author: "Kontributor nderez",
+                image: "https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+                isHero: false,
+                isFeaturedTegalan: true,
+                content: `
+                    <p>Di akhir tahun kemarin, tepatnya 30 Desember 2025 saya mengunjungi Pak Atmo Tan Sidik di kediamannya di Mangkukusuman, Tegal Timur. Saya tertarik dengan agenda penerjemahan al-Qur’an ke Bahasa Tegal yang dilakukan oleh Pak Atmo beserta tim yang terdiri dari 7 orang.</p>
+                    <p>Penerjemahan ini sudah selesai 30 juz, namun masih ada dua tahap lagi untuk kemudian didistribusikan ke masyarakat. Tahap kedua setelah penerjemahan adalah verifikasi oleh expertise dan tahap terakhir verifikasi dari pihak LPMQ Kemenag.</p>
+                    <p>Posisi Pak Atmo tentu menjadi sangat sentral sebagai representasi akademisi-budayawan karena dalam proses penerjemahan al-Qur’an ke Bahasa Tegal tentu akan berkaitan dengan budaya karena bahasa sendiri merupakan bagian inti dari budaya.</p>
+                    <p>Menurutnya penerjemahan al-Qur’an ke bahasa daerah sudah ada sekitar 28 bahasa meliputi Banyumas, Cirebon, Bali, Gayo, Banjar, dll. Penerjemahan ini juga terinspirasi terjemah al-Qur’an Banyumas yang sudah terbit sejak 2015. Padahal Bahasa Tegal dan Bahasa Banyumas seperti saudara kandung (30/12/2025).</p>
+                    
+                    <h2>Penerjemahan sebagai Embrio Kajian al-Qur’an</h2>
+                    <p>Apa yang dilakukan oleh Pak Atmo dan tim tentu saja menjadi pintu gerbang kajian al-Qur’an di Tegal. Bisa dikatakan dalam upaya untuk memahami al-Qur’an yang paling dasar dan mudah adalah dengan terjemahannya. Namun demikian, terkadang dengan terjemahannya saja itu tidaklah cukup karena pembendaharaan kata dalam Bahasa Arab dan Bahasa Tegal atau bahasa-bahasa lainnya jauh berbeda. Belum lagi konteks ayat yang dibahas. Di situlah peran tafsir mulai bekerja.</p>
+                    <p>Sebagai langkah awal tentu ini patut diapresiasi. Penerjemahan ini akan membuka kajian al-Qur’an lebih jauh; tafsir Bahasa Tegal, metode baca al-Qur’an al-Syifa’ atau manuskrip-manuskrip di Tegal yang membicarakan al-Qur’an. Apalagi kajian manuskrip di Tegal dan sekitarnya mulai ramai diadakan seperti yang sering dilakukan oleh beberapa komunitas; Lingkar Aksara, RANU, Penaskah Tiga Daerah, dsb.</p>
+                    <p>Jika dilihat sekilas, prospek kajian al-Qur’an di Tegal begitu cemerlang. Asalkan para praktisi kajian al-Qur’an; bisa dari akademisi atau budayawan dan dari segala elemen ikut konsisten melestarikan kajian ini. Dalam hal ini, IBN Tegal sebagai satu-satunya kampus yang di dalamnya ada jurusan Ilmu Al-Qur’an dan Tafsir di daerah Tegal dan sekitarnya punya agenda besar terkait hal ini, mulai dari mengangkat living Qur’an di daerah Tegal, kajian al-Qur’an berbasis lokalitas, manuskrip, sampai tafsir Tegal.</p>
+                    <p>Ketika al-Qur’an didekati dengan Bahasa Tegal tentu akan menambah khazanah dinamika kajian al-Qur’an. Apalagi Bahasa Tegal mempunyai keunikan dan kekhasan sendiri dibandingkan dengan bahasa dengan dialek ngapak lainnya. Letak geografis yang berada di pesisir pantai Utara tentu menjadi representasi tersendiri dan melahirkan distingsi Banyumas yang berada di sisi pantai Selatan.</p>
+
+                    <h2>Bahasa Tegal sebagai Bahasa Ibu</h2>
+                    <p>Apakah ada efeknya ketika menerjemahkan al-Qur’an ke dalam Bahasa Tegal? Bukankah sudah ada Bahasa Indonesia sebagai bahasa nasional? Tentu saja ada efek yang sangat signifikan.</p>
+                    <p>Hal ini sudah dijelaskan oleh Pavlenko dalam <em>Emotions and Multilingualism</em> (2005), melalui teorinya <em>Mother Tongue Effect/Native Language Effect</em> bahwa bahasa pertama (L1) dapat diproses lebih dalam, lebih otomatis, dan lebih emosional dibandingkan bahasa kedua (L2). Bahasa ibu diperoleh melalui pengalaman emosional awal (keluarga, kasih sayang, konflik dan doa). Selain itu jejak memori bahasa ibu tersimpan dalam memori episodik dan afektif, bukan hanya kognitif.</p>
+                    <p>Sebagai bahasa yang pertama kali dikenal sejak kecil dan hidup dengan bahasa itu selama bertahun-tahun tentu membuat seperti ukiran batu yang tidak akan mudah hilang. Saya sendiri ketika membaca potongan ayat al-Baqarah ayat 75 yang sudah diterjemahkan ke dalam Bahasa Tegal begitu takjub.</p>
+                    <blockquote class="border-l-4 border-gold pl-4 my-4 italic text-forest font-heading text-lg">
+                        “Toli, apa kowen (muslimin) wis ngarep-arep ébén dhéwéké kabéh pracaya maring kowen, sakalé gonggomané dhéwéké kabéh wis krungu firman saka Gusti Allah, toli dhéwéké kabéh ngrubah sawisé paham, sakalé dhéwéké kabéh ngerti?”
+                    </blockquote>
+                    <p>Kalimat <em>afatathma’uuna</em> diterjemahkan dengan “Toli, apa kowen (muslimin) wis ngarep-arep...” sedangkan dalam bahasa Indonesia diterjemahkan dengan “Maka, apakah kamu (muslimin) sangat mengharapkan...” Bedanya di kata “toli” dan “maka”. Di sini terlihat bahasa Tegal lebih bisa mengakomodir daripada Bahasa Indonesia.</p>
+                    <p>Dalam ilmu nahwu, “fa” dalam kalimat fi’il mudhari’ tersebut menunjukkan maksud berurutan secara langsung. Kenapa di terjemah Bahasa Indonesia tidak menggunakan “terus” padahal kata tersebut lebih menekankan maksud berurutan secara langsung. Terjemahan Indonesia menggunakan “maka” juga karena sering kali “fa” diartikan maka sebagai jawab atau kata hubung seperti yang ada dalam kalimat majemuk bertingkat.</p>
+                    <p>Selain itu, konteks ayat ini terkesan Allah sedang menasihati kaum muslimin tentang golongan yang tidak beriman bahkan mereka mengubah firman Allah setelah memahaminya. Dengan bahasa Tegal tersebut, kesan nasihat itu begitu terasa, dibandingkan dengan Bahasa Indonesia yang terlihat flat.</p>
+                    <hr class="my-6 border-gray-200">
+                    <p class="text-xs text-gray-400 italic">Tulisan ini sudah pernah terbit di Koran Radar Tegal</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Membumikan Al-Qur'an di Era Kesibukan Digital",
+                category: "Al-Qur'an",
+                date: "8 Agustus 2026",
+                author: "Redaksi nderez",
+                image: "https://images.unsplash.com/photo-1606105961732-613eb5db1e11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+                isHero: true,
+                isFeaturedTegalan: false,
+                content: `
+                    <p>Dalam pusaran era digital di mana informasi mengalir lebih cepat dari kedipan mata, manusia modern kerap mengalami kekosongan spiritual. Al-Qur'an, sebagai petunjuk abadi, tidak pernah kehilangan relevansinya. Namun, tantangan terbesarnya adalah bagaimana 'membumikan' pesan-pesan langit tersebut ke dalam realitas layar sentuh.</p>
+                    <h2>Menginternalisasi Makna, Bukan Sekadar Membaca</h2>
+                    <p>Tadabbur tidak lagi sekadar membaca secara harfiah, melainkan menginternalisasi nilai-nilai kebijaksanaan untuk menangkal hoaks, menjaga adab bermedia sosial, dan merawat kejernihan hati di tengah polusi informasi. Mari kita telusuri bagaimana ulama-ulama kontemporer merumuskan ulumul Qur'an yang adaptif tanpa kehilangan esensi kesuciannya.</p>
+                `
+            },
+            {
+                id: 3,
+                title: "Sufi & Gen-Z: Mencari Ketenangan di Tengah FoMO",
+                category: "Sufi",
+                date: "3 Agustus 2026",
+                author: "M. Irfan",
+                image: "https://images.unsplash.com/photo-1498661694102-0a3793edbe74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `<p>Ketakutan tertinggal tren (Fear of Missing Out - FoMO) telah menjadi penyakit jiwa masa kini. Sufisme menawarkan penawarnya melalui konsep Zuhud dan Qana'ah yang dimodernisasi...</p><p>Generasi Z tidak perlu meninggalkan teknologi, namun mereka perlu menguasai seni "detoksifikasi" hati dari keterikatan berlebih pada validasi online.</p>`
+            },
+            {
+                id: 4,
+                title: "Logika dan Wahyu: Dialog Rasionalitas dalam Filsafat Islam",
+                category: "Filsafat",
+                date: "1 Agustus 2026",
+                author: "Ahmad Zaki",
+                image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `<p>Sejak era Al-Kindi hingga Ibnu Rusyd, filsafat Islam selalu berupaya mendamaikan antara deduksi akal dan kebenaran wahyu. Bagaimana relevansinya sekarang?</p>`
+            },
+            {
+                id: 5,
+                title: "Kisah Kiai Tua di Lereng Gunung Slamet",
+                category: "Tokoh",
+                date: "28 Juli 2026",
+                author: "Santri Kelana",
+                image: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `<p>Mengenang kembali keteladanan tokoh ulama lokal yang berdakwah dengan kelembutan di lereng Gunung Slamet, menolak kemewahan kota demi merawat umat di pedesaan.</p>`
+            },
+            {
+                id: 6,
+                title: "Akulturasi Budaya: Wayang Kulit dan Tauhid",
+                category: "Tradisi",
+                date: "25 Juli 2026",
+                author: "Budi Santoso",
+                image: "https://images.unsplash.com/photo-1617331828113-149420074dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `<p>Wali Songo menggunakan pendekatan kebudayaan untuk menyebarkan nilai-nilai Islam. Wayang bukan sekadar tontonan, melainkan tuntunan yang penuh dengan filosofi tauhid.</p>`
+            },
+            {
+                id: 8,
+                title: "Sajadah Panjang di Sepertiga Malam (Puisi)",
+                category: "Seni",
+                date: "10 Agustus 2026",
+                author: "Penyair Kelana",
+                image: "https://images.unsplash.com/photo-1519818165688-6617a2245b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `<p>Di hening malam yang merangkul bumi,<br>Sajadah panjang terbentang sepi.<br>Air mata jatuh membasahi kalbu,<br>Mencari rida Sang Penentu Waktu.</p><p>Setiap sujud adalah kepasrahan,<br>Mengetuk pintu arasy pemaafan, <br>Memohon ampunan di batas keheningan.</p>`
+            },
+            {
+                id: 10,
+                title: "Mimpi Terburuk (Cerpen)",
+                category: "Seni",
+                date: "8 Agustus 2026",
+                author: "Pujangga Tegal",
+                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                isHero: false,
+                isFeaturedTegalan: false,
+                content: `
+                    <p>Kebanyakan orang lebih memilih mimpi daripada dunia nyata, karena dalam mimpi bisa bebas melakukan apa pun yang dunia nyata belum tentu bisa melakukannya. Tapi tidak bagi Dinda, baginya tidak ada mimpi indah, semua yang ditemukannya ketika tertidur adalah dunia buruk, menjijikkan dan kejam. Jika ditanya apa yang paling ditakutkan oleh Dinda di dunia ini, maka ia akan dengan lantang akan menjawab "mimpi".</p>
+                    <p>Entah sejak kapan Dinda terus bermimpi buruk. Kalau diingat-ingat menurutnya mimpi buruk yang terus datang itu mulai muncul ketika dia berada di bangku SMP. Ketika dia mulai berkomunikasi dengan teman-temannya atau siapa pun yang ia temui. Tidak jarang mimpi buruknya itu selalu membangunkannya di tengah malam dan ketika mencoba tidur kembali pun mimpi tersebut berlanjut. Sudah menjadi hal biasa bagi Dinda mimpi buruk sampai subuh.</p>
+                    <p>Orang tua Dinda pun sudah tahu kondisi yang dialami oleh anaknya ini, tapi setiap Dinda menceritakan apa yang ada dalam mimpinya pasti kedua orang tuanya tidak percaya dan selalu mengatakan kalau itu hanyalah bunga tidur. Padahal mimpi itu terkadang menjadi suatu tanda. Mimpi itu multidimensi bisa digunakan sebagai media untuk bertemu orang di masa lalu atau masa depan.</p>
+                    <p>Dinda masih ingat betul ketika pertama kali mimpi buruk itu menyerang. Tepat pada pukul 00.00 Dinda berteriak dan bangun dari tidurnya dengan keadaan terengah-engah seperti maling yang sedang dikejar massa. Ibu dan Bapaknya pun panik langsung datang ke kamarnya.</p>
+                    <p>"Kenapa Dinda? Kamu mimpi apa sampai kaya gini?"</p>
+                    <p>Bapaknya datang sambil membawa air minum dan memberikannya ke Dinda. Setelah minum Dinda baru menjawab pertanyaan Ibunya.</p>
+                    <p>"Dinda mimpi buruk Bu."</p>
+                    <p>"Mimpi buruk apa sayang?"</p>
+                    <p>Sambil mengatur nafas, Dinda memastikan kembali apa yang dilihatnya dalam mimpi. Dinda masih belum percaya dengan apa yang ia lihat dalam mimpinya itu.</p>
+                    <p>"Ngga papa nak, cerita sama Ibu"</p>
+                    <p>"Iya Din, Bapak dan Ibu bakal ndengerin kok." Bapak mencoba menguatkan.</p>
+                    <p>Dinda menyipitkan mata dan mencoba mengingat apa yang barusan ia lihat. "Dinda melihat banyak orang aneh. Kepala mereka gepeng seperti gambar 2D tapi bentuknya kotak dengan latar belakang yang berbeda-beda. Lebih anehnya lagi tubuh dari pundak ke bawah itu seperti manusia normal pada umumnya. Semua manusia di sana tidak ada yang tersenyum, semuanya dengan raut wajah marah, bermuka masam dan nada bicara membentak. Hampir semua sifat buruk manusia ada semua dan ditunjukkan dengan jelas tanpa malu oleh manusia-manusia yang ada di dunia itu. Belum lagi, langit tidak ada matahari, yang ada hanya awan mendung dengan petir bersahutan dan juga angin yang berhembus kencang sampai daun-daun dan sampah-sampah beterbangan dimana-mana. Gedung-gedung, rumah-rumah semuanya hancur seperti baru terkena tsunami. Dinda seperti mengalami kiamat Bu."</p>
+                    <p>Ibu dan Bapaknya saling berpandangan sejenak dan tidak tahu apa yang sebenarnya terjadi dengan anaknya ini. Terbesit rasa khawatir yang ada dalam hati mereka.</p>
+                    <p>"Dinda sayang, itu hanya mimpi. Ngga papa, nanti juga lupa sendiri, yang penting Dindanya Ngga kenapa-kenapa. Oke?"</p>
+                    <p>Dinda hanya mengangguk pelan dengan sedikit kecewa.</p>
+                    <p>"Ya udah, Dinda tidur lagi ya. Kalau ada apa-apa panggil Ibu dan Bapak ya." Bapak mencoba menenangkan Dinda.</p>
+                    <p>Lagi-lagi, Dinda hanya mengangguk pelan dengan pikiran yang penuh dengan tanda tanya.</p>
+                    
+                    <div class="text-center my-10 text-2xl font-heading text-gray-300">***</div>
+                    
+                    <p>Sebenarnya Dinda merupakan anak yang baik, sopan, dan lemah lembut. Namun, karena mimpi yang dialaminya setiap malam membuatnya terkadang tiba-tiba saja marah, bahkan sampai berbuat anarkis. Pernah ketika Dinda ingin ke kantin sekolah, tiba-tiba tanpa sebab dia mengamuk dan membanting kursi, meja dan apa pun yang ada di kantin itu. Anehnya ketika dalam keadaan marah itu, pupil mata Dinda menghilang dan tersisa putihnya saja. seperti orang kesurupan dan kata-kata yang keluar dari mulutnya pun kasar dan sadis. Beberapa guru pun datang untuk menenangkannya dan biasanya kondisi itu hanya terjadi beberapa menit saja dan tenang dengan লড়াইsendirinya. Hanya saja perlu dijaga agar tidak dalam kondisi "kesurupan" itu agar tidak menimbulkan kerusakan yang lebih parah.</p>
+                    <p>Oleh karena itu, Dinda dijauhi oleh teman-temannya dan tidak ada yang mau mendekatinya karena takut. Dinda yang seperti itu pun akhirnya hanya bisa menangis dan depresi bahkan pernah nyaris bunuh diri.</p>
+                    <p>Suatu ketika karena Dinda sudah tidak tahan lagi, akhirnya Ibunya pun membawa Dinda ke psikiater. Ibunya pun sudah tidak tahu lagi harus bagaimana akhirnya mau mengantarkan anaknya, tentu demi kesembuhannya. Namun ternyata psikiater itu pun menyerah dan belum pernah menerima pasien yang seaneh Dinda. Psikiater itu hanya berpesan pada Ibunya bahwa sebenarnya kunci dari kesembuhan dirinya adalah dirinya sendiri, tapi ia tidak bisa mengatakan dengan jelas bagaimana caranya.</p>
+                    <p>Ibunya sudah tidak tahu lagi apa yang harus dilakukan dengan anaknya. Ibunya teringat dengan pesan dari psikiater bahwa yang bisa menyembuhkan adalah Dinda sendiri. Akhirnya Ibunya pun menanyakan Dinda setiap bangun dari tidur tentang mimpi yang dialaminya. Meskipun masih belum mempercayainya, setidaknya hanya ini satu-satunya jalan agar anaknya bisa sembuh.</p>
+                    <p>"Semalam Dinda mimpi apa?" Tanya Ibu ke Dinda.</p>
+                    <p>"Mimpinya sama aja Bu, Dinda merasa ada di dunia yang begitu kacau dengan kondisi orang-orang yang pada marah dan berteriak ketika ngobrol dengan orang lain. Begitu pula dengan bentuk 2D kepala mereka yang sangat aneh. Mimpi Dinda seperti kehidupan sekarang hanya saja dengan kondisinya yang berbeda. Tapi entah kenapa semalam di tengah dunia apokalips begitu, Dinda melihat sosok separuh baya yang memakai pakaian rapi di antara orang-orang kacau. Anehnya lagi cara dia ngomong itu normal tidak ngegas dan cenderung tenang dan berwibawa tidak seperti orang lainnya. Tapi Dinda tidak berani mendekati orang itu, padahal Dinda ingin tanya bagaimana caranya dia bisa tenang seperti itu dan juga barangkali dia tahu cara keluar dari dunia yang kacau ini."</p>
+                    <p>Ibunya bergumam "Apakah ini yang dimaksud psikiater itu?"</p>
+                    <p>"Wah kayanya ini bertanda baik Dinda. Coba nanti kamu memberanikan diri tanya aja orang itu. Kalau dia paling tenang dan rapi di saat semuanya kacau, Ibu yakin dia pasti orang baik."</p>
+                    <p>"Baik Bu, nanti Dinda akan tanya ke orang itu."</p>
+                    
+                    <div class="text-center my-10 text-2xl font-heading text-gray-300">***</div>
+                    
+                    <p>Dinda kembali ke Dunia mimpi yang kacau itu. Dinda mencoba mencari ke sana kemari orang rapi yang dilihatnya kemarin tapi sekarang tidak ada. Dinda pun berhenti di tengah jalan raya yang sudah hancur itu dengan bangkai mobil dimana-mana. Beberapa saat kemudian ada seorang yang menepuk pundaknya dari belakang. Dinda pun kaget dan memaki orang itu agar jangan tiba-tiba mengagetkan begitu. Tapi ternyata orang itu adalah orang rapi yang dari tadi dicarinya.</p>
+                    <p>"Saya dari tadi mencari Bapak! Dari mana saja?!" Dinda bertanya pada orang itu, tentu dengan nada membentak sekaligus marah, karena memang di dunia mimpi cara kerja komunikasi demikian.</p>
+                    <p>Laki-laki itu menjawab: "Hahaha...Saya tidak kemana-mana, justru dari tadi saya menunggu kamu di sini."</p>
+                    <p>Dinda terkejut, karena baru pertama kali ia menemukan orang tertawa di dunia mimpi ini.</p>
+                    <p>"Kenapa Bapak berbeda dengan orang-orang yang ada di sini? Sebenarnya Bapak ini siapa?!"</p>
+                    <p>"Saya bukan siapa-siapa. Saya hanya orang yang diperintah oleh atasan saya agar menemukan orang-orang yang ingin berubah, seperti kamu ini Dinda. Kamu tahu ngga kenapa orang-orang di sini semuanya kacau dan berperilaku sangat buruk?"</p>
+                    <p>"Engga!"</p>
+                    <p>"Haha...karena dunia ini adalah dunia yang menunjukkan sifat asli dari manusia dan apa yang mereka tunjukkan adalah sifat asli mereka. Jika kamu ingin keluar dari dunia ini kamu harus menemukan kira-kira apa yang ada di dunia kamu sana yang sama dengan tempat ini, tempat di mana orang bisa sesuka hati tidak malu menunjukkan aib dan kejelekannya."</p>
+                    <p>Dinda pun berpikir keras mendengar jawaban dari orang itu. Dan beberapa saat kemudian Dinda terpikirkan sesuatu.</p>
+                    <p>"Saya tahu apa itu!"</p>
+                    <p>Ketika Dinda berhasil menemukan jawabannya dan mencoba untuk menjawab tapi orang yang ada di hadapannya tadi sudah menghilang tanpa bekas.</p>
+                    <p>Keesokan harinya ketika Dinda bangun dari mimpi itu Dinda langsung bergegas mencari HP-nya dan menghapus semua media sosial yang ada di dalamnya.</p>
+                `
+            }
+        ];
+
+        let currentCategory = 'Semua';
+
+        function renderHome() {
+            const heroSection = document.getElementById('hero-section');
+            const tegalanSection = document.getElementById('tegalan-spotlight');
+            const gridSection = document.getElementById('articles-grid');
+            const popularSidebar = document.getElementById('popular-sidebar');
+            const catHeader = document.getElementById('category-header');
+            const catTitle = document.getElementById('category-title-text');
+            const catSynopsis = document.getElementById('category-synopsis');
+            
+            heroSection.innerHTML = '';
+            tegalanSection.innerHTML = '';
+            gridSection.innerHTML = '';
+            popularSidebar.innerHTML = '';
+
+            let filteredData = database;
+            if (currentCategory !== 'Semua') {
+                filteredData = database.filter(item => item.category === currentCategory);
+                catHeader.classList.remove('hidden');
+                catTitle.innerText = `Rubrik: ${currentCategory}`;
+                document.getElementById('grid-title').innerText = "Daftar Artikel";
+                
+                if (currentCategory === 'Tegalan') {
+                    catSynopsis.innerText = "Memuat segala tulisan tentang Tegal dan sekitarnya, dari mulai tradisi, budaya, mitos, cerita dan bahkan boleh ditulis dengan menggunakan bahasa Tegal.";
+                    catSynopsis.classList.remove('hidden');
+                } else {
+                    catSynopsis.classList.add('hidden');
+                }
+            } else {
+                catHeader.classList.add('hidden');
+                document.getElementById('grid-title').innerText = "Kajian Terbaru";
+                if(catSynopsis) catSynopsis.classList.add('hidden');
+            }
+
+            const tegalanArticle = database.find(a => a.isFeaturedTegalan);
+            
+            if (tegalanArticle && (currentCategory === 'Semua' || currentCategory === 'Tegalan')) {
+                tegalanSection.classList.remove('hidden');
+                tegalanSection.innerHTML = `
+                    <div class="relative bg-forest border-2 border-gold rounded-3xl p-6 md:p-10 shadow-[0_10px_35px_rgba(15,81,50,0.25)] overflow-hidden cursor-pointer group flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 poci-pattern" onclick="openArticle(${tegalanArticle.id})">
+                        <div class="relative z-10 md:w-3/5 flex flex-col justify-center">
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="flex items-center gap-1.5 px-3.5 py-1.5 bg-gold text-white font-ui text-xs font-bold rounded-md uppercase tracking-wider shadow-sm">
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i> Ruang Tegalan — Sorotan Khusus
+                                </span>
+                                <span class="text-xs text-softgreen opacity-80 font-ui font-medium">${tegalanArticle.date}</span>
+                            </div>
+                            <h2 class="font-heading text-3xl md:text-4xl text-white font-bold leading-tight mb-4 group-hover:text-gold transition-colors duration-300">${tegalanArticle.title}</h2>
+                            <p class="font-body text-softgreen/90 text-lg mb-6 line-clamp-3 leading-relaxed">
+                                ${tegalanArticle.content.replace(/<[^>]*>?/gm, '')}
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-emerald text-white flex items-center justify-center font-bold text-sm border border-gold/40">
+                                    ${tegalanArticle.author.charAt(0)}
+                                </div>
+                                <span class="font-ui font-medium text-sm text-softgreen">${tegalanArticle.author}</span>
+                                <span class="mx-2 text-gold opacity-60">|</span>
+                                <span class="text-gold font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">Baca Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 w-full md:w-2/5">
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border-2 border-gold/50 relative bg-white">
+                                <img src="${tegalanArticle.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Ilustrasi Kajian Al-Qur'an Tegal">
+                                <div class="absolute inset-0 bg-forest/10 group-hover:bg-transparent transition"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                tegalanSection.classList.add('hidden');
+            }
+
+            if (currentCategory === 'Semua') {
+                const mainHero = database.find(a => a.isHero);
+                const sideHeroes = database.filter(a => !a.isHero && !a.isFeaturedTegalan).slice(0, 2);
+
+                if (mainHero) {
+                    let sideHtml = '';
+                    sideHeroes.forEach(article => {
+                        sideHtml += `
+                            <div class="flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer hover:shadow-md transition" onclick="openArticle(${article.id})">
+                                <div class="h-40 overflow-hidden relative">
+                                    <img src="${article.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${article.title}">
+                                    <span class="absolute top-3 left-3 px-2 py-1 bg-white/90 backdrop-blur-sm text-forest font-ui text-[10px] font-bold uppercase rounded shadow-sm">${article.category}</span>
+                                </div>
+                                <div class="p-5 flex flex-col justify-between flex-grow">
+                                    <h3 class="font-heading text-lg font-bold text-forest leading-snug group-hover:text-emerald transition line-clamp-3">${article.title}</h3>
+                                    <div class="mt-4 text-[11px] text-gray-400 font-ui font-medium flex items-center gap-1">
+                                        <i data-lucide="clock" class="w-3 h-3"></i> ${article.date}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    heroSection.innerHTML = `
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                            <div class="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-sm group cursor-pointer h-[400px] lg:h-[500px]" onclick="openArticle(${mainHero.id})">
+                                <img src="${mainHero.image}" alt="${mainHero.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 z-20">
+                                    <span class="inline-block px-3 py-1 bg-emerald text-white font-ui text-xs font-bold tracking-wider rounded-md mb-4 uppercase">${mainHero.category}</span>
+                                    <h2 class="font-heading text-3xl md:text-5xl text-white font-bold leading-tight mb-4 group-hover:text-gold transition-colors w-full md:w-5/6">${mainHero.title}</h2>
+                                    <div class="flex items-center gap-3 text-white/80 font-ui text-sm">
+                                        <div class="flex items-center gap-1.5"><i data-lucide="user" class="w-4 h-4"></i> ${mainHero.author}</div>
+                                        <span>•</span>
+                                        <div class="flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4"></i> ${mainHero.date}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-4 flex flex-col gap-6">
+                                ${sideHtml}
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                heroSection.innerHTML = '';
+            }
+
+            let regularArticles = filteredData;
+            if (currentCategory === 'Semua') {
+                regularArticles = filteredData.filter(a => !a.isHero && !a.isFeaturedTegalan && database.indexOf(a) > 3);
+            } else if (currentCategory === 'Tegalan') {
+                regularArticles = filteredData.filter(a => !a.isFeaturedTegalan);
+            }
+
+            if(regularArticles.length === 0 && currentCategory !== 'Semua') {
+                gridSection.innerHTML = `
+                    <div class="text-center py-10 bg-gray-50 rounded-xl border border-dashed border-gray-200">
+                        <i data-lucide="folder-open" class="w-10 h-10 text-gray-300 mx-auto mb-3"></i>
+                        <p class="text-gray-500 font-ui">Artikel untuk kategori ini sedang disiapkan.</p>
+                    </div>`;
+            } else {
+                regularArticles.forEach(article => {
+                    gridSection.innerHTML += `
+                        <article class="flex flex-col sm:flex-row gap-6 bg-transparent group cursor-pointer" onclick="openArticle(${article.id})">
+                            <div class="sm:w-1/3 aspect-[4/3] sm:aspect-square md:aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 flex-shrink-0 relative">
+                                <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+                            </div>
+                            <div class="sm:w-2/3 flex flex-col justify-center py-1">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-emerald font-ui text-xs font-bold uppercase tracking-wider">${article.category}</span>
+                                    <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                    <span class="text-gray-400 font-ui text-xs">${article.date}</span>
+                                </div>
+                                <h3 class="font-heading text-xl md:text-2xl font-bold text-forest mb-3 leading-snug group-hover:text-emerald transition">${article.title}</h3>
+                                <p class="font-body text-gray-600 line-clamp-2 text-sm md:text-base leading-relaxed mb-4">${article.content.replace(/<[^>]*>?/gm, '')}</p>
+                                <div class="mt-auto flex items-center text-gray-500 font-ui text-sm font-medium gap-2">
+                                    <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-xs text-forest">${article.author.charAt(0)}</div>
+                                    ${article.author}
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                });
+            }
+
+            const popularItems = database.slice(0, 4);
+            popularItems.forEach((item, index) => {
+                popularSidebar.innerHTML += `
+                    <li class="flex gap-4 items-start group cursor-pointer" onclick="openArticle(${item.id})">
+                        <div class="text-3xl font-heading font-bold text-gray-200 group-hover:text-gold transition pt-1 leading-none">0${index + 1}</div>
+                        <div>
+                            <h5 class="font-heading text-base font-bold text-forest group-hover:text-emerald transition leading-tight mb-1">${item.title}</h5>
+                            <span class="text-xs font-ui text-emerald uppercase tracking-wider">${item.category}</span>
+                        </div>
+                    </li>
+                `;
+            });
+
+            lucide.createIcons();
+        }
+
+        function filterCategory(category, btnElement) {
+            currentCategory = category;
+            
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if(btnElement) {
+                btnElement.classList.add('active');
+            } else {
+                const links = document.querySelectorAll('.nav-link');
+                links.forEach(link => {
+                    if(link.innerText.includes(category) || (category === 'Semua' && link.innerText === 'Beranda')) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            goHome(); 
+            renderHome();
+        }
+
+        function openArticle(id) {
+            const article = database.find(a => a.id === id);
+            if(!article) return;
+
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('article-view').classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            const hero = document.getElementById('reader-hero');
+            const header = document.getElementById('reader-header');
+            const content = document.getElementById('reader-content');
+            
+            hero.innerHTML = `
+                <img src="${article.image}" class="w-full h-full object-cover" alt="${article.title}">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            `;
+
+            const badgeHtml = article.category === 'Tegalan' ? 
+                `<span class="inline-flex items-center px-4 py-1.5 bg-gold text-white font-ui text-xs font-bold rounded-md uppercase tracking-wider mb-6 shadow-sm"><i data-lucide="star" class="w-3.5 h-3.5 mr-1.5 fill-current"></i> Ruang Tegalan</span>` : 
+                `<span class="inline-block px-4 py-1.5 bg-softgreen text-emerald font-ui text-xs font-bold rounded-md uppercase tracking-wider mb-6">${article.category}</span>`;
+
+            header.innerHTML = `
+                ${badgeHtml}
+                <h1 class="font-heading text-3xl md:text-5xl text-forest font-bold leading-tight mb-6">${article.title}</h1>
+                <div class="flex items-center justify-center gap-4 font-ui text-sm border-y border-gray-100 py-4 max-w-md mx-auto">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-emerald text-white flex items-center justify-center font-bold">
+                            ${article.author.charAt(0)}
+                        </div>
+                        <span class="font-semibold text-forest">${article.author}</span>
+                    </div>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-gray-500">${article.date}</span>
+                </div>
+            `;
+
+            let styledContent = article.content;
+            content.innerHTML = styledContent;
+
+            // Set URL hash agar address bar berubah saat artikel dibuka
+            window.location.hash = 'article-' + article.id;
+
+            // Buat URL yang bersih untuk dibagikan (selalu mengarah ke domain utama)
+            const publicBaseUrl = 'https://nderez.id';
+            const currentUrl = publicBaseUrl + '/#article-' + article.id;
+            const shareText = encodeURIComponent(`Baca artikel menarik: "${article.title}" di nderez.id`);
+            const shareUrl = encodeURIComponent(currentUrl);
+
+            document.getElementById('share-whatsapp').href = `https://api.whatsapp.com/send?text=${shareText}%20-%20${shareUrl}`;
+            document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+            
+            lucide.createIcons();
+        }
+
+        function goHome() {
+            document.getElementById('article-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            // Hapus parameter artikel dari address bar saat kembali ke beranda
+            if(window.location.hash) {
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }
+        }
+
+        function openKirimTulisanModal() {
+            document.getElementById('kirim-tulisan-modal').classList.remove('hidden');
+        }
+
+        function closeKirimTulisanModal() {
+            document.getElementById('kirim-tulisan-modal').classList.add('hidden');
+        }
+
+        function openTentangKamiModal() {
+            document.getElementById('tentang-kami-modal').classList.remove('hidden');
+        }
+
+        function closeTentangKamiModal() {
+            document.getElementById('tentang-kami-modal').classList.add('hidden');
+        }
+
+        function openPedomanSiberModal() {
+            document.getElementById('pedoman-siber-modal').classList.remove('hidden');
+        }
+
+        function closePedomanSiberModal() {
+            document.getElementById('pedoman-siber-modal').classList.add('hidden');
+        }
+
+        function openKontakRedaksiModal() {
+            document.getElementById('kontak-redaksi-modal').classList.remove('hidden');
+        }
+
+        function closeKontakRedaksiModal() {
+            document.getElementById('kontak-redaksi-modal').classList.add('hidden');
+        }
+
+        // Inisialisasi Website dan Cek URL
+        function initApp() {
+            // Selalu render beranda di awal
+            renderHome();
+            
+            // Cek apakah URL yang diakses memiliki tag artikel (contoh: nderez.id/#article-7)
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#article-')) {
+                const articleId = parseInt(hash.replace('#article-', ''));
+                // Jika ID valid, otomatis langsung buka artikel tersebut
+                if (!isNaN(articleId)) {
+                    openArticle(articleId);
+                }
+            }
+        }
+
+        // Jalankan fungsi
+        initApp();
+    </script>
+</body>
+</html>
