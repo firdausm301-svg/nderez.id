@@ -130,7 +130,7 @@
     <div class="bg-forest text-softgreen py-2 text-xs font-medium tracking-wide border-b border-emerald/50">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div>
-                <button onclick="openKirimTulisanModal()" class="inline-flex items-center gap-1.5 bg-gold/20 hover:bg-gold text-white px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider transition border border-gold/40 shadow-sm">
+                <button onclick="openKirimTulisanModal()" class="inline-flex items-center gap-1.5 bg-gold/20 hover:bg-gold text-white px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider transition border border-gold/40 shadow-sm cursor-pointer">
                     <i data-lucide="send" class="w-3 h-3"></i> Kirim Tulisan
                 </button>
             </div>
@@ -161,16 +161,16 @@
             <!-- Navigation -->
             <nav class="w-full overflow-x-auto pb-2 md:pb-1 hide-scrollbar">
                 <ul class="flex justify-start items-center gap-x-5 md:gap-x-8 gap-y-3 whitespace-nowrap md:whitespace-normal md:flex-wrap text-sm font-medium text-gray-600" id="nav-menu">
-                    <li><button onclick="filterCategory('Semua', this)" class="nav-link active hover:text-emerald transition">Beranda</button></li>
-                    <li><button onclick="filterCategory('Al-Qur\'an', this)" class="nav-link hover:text-emerald transition">Al-Qur'an</button></li>
-                    <li><button onclick="filterCategory('Sufi', this)" class="nav-link hover:text-emerald transition">Sufi</button></li>
-                    <li><button onclick="filterCategory('Filsafat', this)" class="nav-link hover:text-emerald transition">Filsafat</button></li>
-                    <li><button onclick="filterCategory('Tokoh', this)" class="nav-link hover:text-emerald transition">Tokoh</button></li>
-                    <li><button onclick="filterCategory('Tradisi', this)" class="nav-link hover:text-emerald transition">Tradisi</button></li>
-                    <li><button onclick="filterCategory('Opini', this)" class="nav-link hover:text-emerald transition">Opini</button></li>
-                    <li><button onclick="filterCategory('Seni', this)" class="nav-link hover:text-emerald transition">Seni</button></li>
+                    <li><button onclick="filterCategory('Semua', this)" class="nav-link active hover:text-emerald transition cursor-pointer">Beranda</button></li>
+                    <li><button onclick="filterCategory('Al-Qur\'an', this)" class="nav-link hover:text-emerald transition cursor-pointer">Al-Qur'an</button></li>
+                    <li><button onclick="filterCategory('Sufi', this)" class="nav-link hover:text-emerald transition cursor-pointer">Sufi</button></li>
+                    <li><button onclick="filterCategory('Filsafat', this)" class="nav-link hover:text-emerald transition cursor-pointer">Filsafat</button></li>
+                    <li><button onclick="filterCategory('Tokoh', this)" class="nav-link hover:text-emerald transition cursor-pointer">Tokoh</button></li>
+                    <li><button onclick="filterCategory('Tradisi', this)" class="nav-link hover:text-emerald transition cursor-pointer">Tradisi</button></li>
+                    <li><button onclick="filterCategory('Opini', this)" class="nav-link hover:text-emerald transition cursor-pointer">Opini</button></li>
+                    <li><button onclick="filterCategory('Seni', this)" class="nav-link hover:text-emerald transition cursor-pointer">Seni</button></li>
                     <li>
-                        <button onclick="filterCategory('Tegalan', this)" class="nav-link !text-gold hover:!text-yellow-600 flex items-center gap-1.5 bg-tegalanbg px-3 py-1.5 rounded-md border border-gold/20 transition-all shadow-sm">
+                        <button onclick="filterCategory('Tegalan', this)" class="nav-link !text-gold hover:!text-yellow-600 flex items-center gap-1.5 bg-tegalanbg px-3 py-1.5 rounded-md border border-gold/20 transition-all shadow-sm cursor-pointer">
                             <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Ruang Tegalan
                         </button>
                     </li>
@@ -223,7 +223,7 @@
                     
                     <div class="bg-white rounded-xl p-1 shadow-sm border border-gray-100 flex items-center focus-within:ring-2 focus-within:ring-emerald/20 transition-all">
                         <input type="text" id="search-input" placeholder="Cari kajian..." oninput="handleSearch(this.value)" class="w-full pl-4 pr-2 py-3 outline-none text-sm bg-transparent">
-                        <button class="p-3 bg-softgreen text-forest rounded-lg hover:bg-emerald hover:text-white transition">
+                        <button class="p-3 bg-softgreen text-forest rounded-lg hover:bg-emerald hover:text-white transition cursor-pointer">
                             <i data-lucide="search" class="w-4 h-4"></i>
                         </button>
                     </div>
@@ -266,7 +266,7 @@
         <div id="article-view" class="fade-in hidden">
             
             <div class="max-w-4xl mx-auto mb-6">
-                <button onclick="goHome()" class="flex items-center gap-2 text-sm text-gray-500 hover:text-emerald font-medium transition group bg-white border border-gray-200 px-4 py-2 rounded-full w-fit shadow-sm">
+                <button onclick="goHome()" class="flex items-center gap-2 text-sm text-gray-500 hover:text-emerald font-medium transition group bg-white border border-gray-200 px-4 py-2 rounded-full w-fit shadow-sm cursor-pointer">
                     <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Kembali
                 </button>
             </div>
@@ -327,7 +327,7 @@
                     <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Open Submission</span>
                     <h3 class="font-heading text-2xl font-bold">Panduan & Ketentuan Kirim Tulisan</h3>
                 </div>
-                <button onclick="closeKirimTulisanModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                <button onclick="closeKirimTulisanModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10 cursor-pointer">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -371,7 +371,7 @@
             </div>
 
             <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
-                <button onclick="closeKirimTulisanModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup Panduan</button>
+                <button onclick="closeKirimTulisanModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition cursor-pointer">Tutup Panduan</button>
             </div>
         </div>
     </div>
@@ -384,7 +384,7 @@
                     <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Struktur Redaksi & Profil</span>
                     <h3 class="font-heading text-2xl font-bold">Tentang Kami — nderez.id</h3>
                 </div>
-                <button onclick="closeTentangKamiModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                <button onclick="closeTentangKamiModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10 cursor-pointer">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -422,7 +422,7 @@
             </div>
 
             <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
-                <button onclick="closeTentangKamiModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup</button>
+                <button onclick="closeTentangKamiModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition cursor-pointer">Tutup</button>
             </div>
         </div>
     </div>
@@ -435,7 +435,7 @@
                     <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Regulasi & Standar Jurnalistik</span>
                     <h3 class="font-heading text-2xl font-bold">Pedoman Media Siber — nderez.id</h3>
                 </div>
-                <button onclick="closePedomanSiberModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                <button onclick="closePedomanSiberModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10 cursor-pointer">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -464,7 +464,7 @@
             </div>
 
             <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
-                <button onclick="closePedomanSiberModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup Pedoman</button>
+                <button onclick="closePedomanSiberModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition cursor-pointer">Tutup Pedoman</button>
             </div>
         </div>
     </div>
@@ -477,7 +477,7 @@
                     <span class="text-xs font-ui text-gold uppercase tracking-widest font-bold">Hubungi Kami</span>
                     <h3 class="font-heading text-2xl font-bold">Kontak Redaksi — nderez.id</h3>
                 </div>
-                <button onclick="closeKontakRedaksiModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10">
+                <button onclick="closeKontakRedaksiModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition relative z-10 cursor-pointer">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -510,7 +510,7 @@
             </div>
 
             <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end">
-                <button onclick="closeKontakRedaksiModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition">Tutup Kontak</button>
+                <button onclick="closeKontakRedaksiModal()" class="px-5 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-ui text-xs font-bold uppercase tracking-wider rounded-xl transition cursor-pointer">Tutup Kontak</button>
             </div>
         </div>
     </div>
@@ -927,7 +927,7 @@
                     <p>Di minggu pertama bapak ternyata juga diincar, sehingga waktu itu pun, ia akhirnya menghembuskan nafasnya yang terakhir kali tatkala pagi buta Ia mengeluarkan Vespa dari dalam rumah. Ia tertembak panah kecil yang beracun bisa cobbra. Aku sangat terpukul atas kejadian itu. Dan berniat bunuh diri, namun Clara mencegahku dan akhirnya tidak jadi bunuh diri, padahal waktu itu tinggal naik kursi lalu menggantungkan diri kemudian mati. Tapi itu tadi, Tuhan masih baik dan selalu akan baik. Akhirnya dia menyelamatkanku lewat Clara.</p>
                     <p>Minggu kedua, aku dan Clara memulai hidup baru, satu atap di rumahku. Karena bapak sudah pergi, maka aku mengajak Clara untuk menemaniku di sisa hidup yang penuh teror ini.</p>
                     <p>Hingga suatu saat, di minggu yang entah ke berapa. Kami benar-benar diincar habis dengan ganas. Ada yang mengatakan kami akan di bakar hidup-hidup. Ada juga yang mengatakan kami akan dijadikan sate bakar, dan tulang-tulangnya akan dijadikan sup. Benar-benar gila.</p>
-                    <p>Akhirnya, di minggu sisa akhir hidup kami. Banyak hari-hari yang kami lewati dengan canda-tawa, kembang api dan makan ec creem bersama. Sampai pada malam harinya ketika kami sedang tidur terlelap suara samar-samar memasuki rubanah kami. Dan tepat saat itu seisi rumah meledak hingga berkeping-keping tak tersisa sama sekali. Semua bangunan rumah runtuh, keping demi keping. Di susul mataku pun perlahan samar dan tak bisa melihat lagi, badanku seperti lebur menjadi gumpalan gumpalan debu berterbangan. Dan aku merasa melayang terbang ke angkasa secara perlahan.</p>
+                    <p>Akhirnya, di minggu sisa akhir hidup kami. Banyak hari-hari yang kami lewati dengan canda-tawa, kembang api dan makan ec creem bersama. Sampai pada malam harinya ketika kami sedang tidur terlelap suara samar-samar memasuki rubanah kami. Dan tepat saat itu seisi rumah meledak hingga berkeping-keping tak tersisa sama sekali. Semua bangunan rumah runtuh, keping demi keping. Di susul mataku pun perlahan samar dan tak bisa melihat lagi, badanku seperti lebur menjadi gumpalan-gumpalan debu berterbangan. Dan aku merasa melayang terbang ke angkasa secara perlahan.</p>
                     <p>Ternyata aku baru sadar, kejadian itu tak pernah terjadi sama sekali. Sekarang Aku sedang di rubanah tempat aku dipasung dengan rantai. Ternyata hanya ilusi yang merasuk ke dalam pikiranku. Saat itu juga aku sadar, bahwa rubanah itu berada di bawah rumah sakit jiwa. Dan aku sedang dalam pengawasan dokter psikologi. Karena divonis mengidap Obsesissive-Compulsive Disorder dan telah terbukti membunuh bapaknya sendiri dan seorang gadis cantik bernama Clara serta 7 teman kelasnya.</p>
                 `
             }
@@ -1048,6 +1048,9 @@
                     catSynopsis.classList.remove('hidden');
                 } else if (currentCategory === 'Sufi') {
                     catSynopsis.innerText = "Berisi tentang tulisan yang berkaitan dengan sufi, tasawuf, ajaran praktik tarekat atau tokoh-tokoh sufi yang ada di dunia.";
+                    catSynopsis.classList.remove('hidden');
+                } else if (currentCategory === 'Filsafat') {
+                    catSynopsis.innerText = "Semua tulisan yang berbau filsafat; teori, ajaran, praktik, fenomena, mindset dan juga tokoh filsafat semuanya bisa dimuat di sini.";
                     catSynopsis.classList.remove('hidden');
                 } else if (currentCategory === 'Opini') {
                     catSynopsis.innerText = "Ekspertis apapun; Pendidik, Budayawan, Seniman, Kyai, bahkan Pelawak bisa menulis di sini. Berisi tulisan dengan perspektif penulis namun tetap objektif, komprehensif dan mendalam serta argumentatif.";
@@ -1278,12 +1281,10 @@
 
             content.innerHTML = article.content;
 
-            // Render Related Articles (3 artikel lain secara acak/berbeda)
             const relatedGrid = document.getElementById('related-articles-grid');
             relatedGrid.innerHTML = '';
             
             const otherArticles = database.filter(a => a.id !== id);
-            // Ambil 3 artikel pertama sebagai rekomendasi
             const suggestedArticles = otherArticles.slice(0, 3);
 
             suggestedArticles.forEach(rel => {
