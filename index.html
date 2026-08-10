@@ -302,6 +302,17 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- SARAN / REKOMENDASI ARTIKEL TERKAIT -->
+                    <div class="mt-16 pt-10 border-t border-gray-200">
+                        <h3 class="font-heading text-2xl text-forest font-bold mb-6 flex items-center gap-2">
+                            <i data-lucide="book-bookmark" class="w-5 h-5 text-emerald"></i> Artikel Lain yang Perlu Dibaca
+                        </h3>
+                        <div id="related-articles-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Dynamic Related Articles -->
+                        </div>
+                    </div>
+
                 </div>
             </article>
         </div>
@@ -979,7 +990,6 @@
 
             let filteredData = database;
 
-            // Apply search filter if present
             if (searchQuery) {
                 filteredData = database.filter(item => 
                     item.title.toLowerCase().includes(searchQuery) || 
@@ -1267,6 +1277,32 @@
             `;
 
             content.innerHTML = article.content;
+
+            // Render Related Articles (3 artikel lain secara acak/berbeda)
+            const relatedGrid = document.getElementById('related-articles-grid');
+            relatedGrid.innerHTML = '';
+            
+            const otherArticles = database.filter(a => a.id !== id);
+            // Ambil 3 artikel pertama sebagai rekomendasi
+            const suggestedArticles = otherArticles.slice(0, 3);
+
+            suggestedArticles.forEach(rel => {
+                relatedGrid.innerHTML += `
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col cursor-pointer group hover:shadow-md transition" onclick="openArticle(${rel.id})">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="${rel.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="${rel.title}">
+                            <span class="absolute top-2 left-2 px-2 py-0.5 bg-forest text-white font-ui text-[10px] font-bold uppercase rounded shadow-sm">${rel.category}</span>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <span class="text-xs text-gray-400 font-ui mb-1">${rel.date}</span>
+                            <h4 class="font-heading text-base font-bold text-forest group-hover:text-emerald transition line-clamp-2 leading-snug mb-2">${rel.title}</h4>
+                            <div class="mt-auto pt-3 text-xs font-ui font-semibold text-emerald flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                Baca Artikel <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
 
             try {
                 window.location.hash = 'article-' + article.id;
