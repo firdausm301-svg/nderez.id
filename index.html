@@ -578,11 +578,17 @@
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('id-ID', dateOptions);
 
+        // Helper untuk menghasilkan URL gambar inisial berdasarkan nama penulis
+        function getInitialsAvatar(name) {
+            const initials = name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
+            return `https://placehold.co/400x400/0f5132/c5a059?text=${initials}`;
+        }
+
         const authorsProfile = {
             "Redaksi nderez.id": {
                 name: "Redaksi nderez.id",
                 role: "Tim Editor & Kontributor Utama",
-                photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("Redaksi nderez.id"),
                 bio: "Tim redaksi dan pengelola portal kajian Islam Nusantara yang berfokus menyajikan wawasan keislaman jernih, kontekstual, serta merawat khazanah kearifan lokal."
             },
             "The Last Prince": {
@@ -594,37 +600,37 @@
             "M. Irfan": {
                 name: "M. Irfan",
                 role: "Pengamat Tasawuf & Kontemporer",
-                photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("M. Irfan"),
                 bio: "Peminat kajian sufisme kontemporer dan kesehatan mental generasi muda di era digital."
             },
             "Ahmad Zaki": {
                 name: "Ahmad Zaki",
                 role: "Pemerhati Filsafat Islam",
-                photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("Ahmad Zaki"),
                 bio: "Mahasiswa dan peneliti pemikiran filsafat klasik serta perdebatan rasionalitas dalam teologi Islam."
             },
             "Santri Kelana": {
                 name: "Santri Kelana",
                 role: "Penulis Hukum & Tradisi Pesantren",
-                photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("Santri Kelana"),
                 bio: "Pengelana dunia pesantren yang mendokumentasikan pemikiran hukum Islam dan dinamika sosial masyarakat."
             },
             "Budi Santoso": {
                 name: "Budi Santoso",
                 role: "Budayawan & Pengamat Seni Tradisi",
-                photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("Budi Santoso"),
                 bio: "Aktivis budaya yang mendedikasikan diri meneliti relasi antara seni tradisi lokal dengan nilai-nilai tauhid."
             },
             "Penyair Kelana": {
                 name: "Penyair Kelana",
                 role: "Sastrawan & Penulis Puisi",
-                photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("Penyair Kelana"),
                 bio: "Penulis sajak dan puisi kontemporer yang mengeksplorasi kedalaman spiritualitas malam."
             },
             "Pujangga Tegal": {
                 name: "Pujangga Tegal",
                 role: "Penulis Cerpen & Sastra Lokal",
-                photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                photo: getInitialsAvatar("Pujangga Tegal"),
                 bio: "Pemberontak kata dan pengarang cerita pendek yang menyoroti pergulatan batin manusia modern."
             },
             "A. Reza Wibowo": {
@@ -1054,7 +1060,7 @@
                 const profile = authorsProfile[selectedAuthor] || {
                     name: selectedAuthor,
                     role: "Kontributor & Penulis",
-                    photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+                    photo: getInitialsAvatar(selectedAuthor),
                     bio: "Penulis dan kontributor aktif artikel di portal nderez.id."
                 };
 
@@ -1139,7 +1145,7 @@
                             </p>
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-full bg-emerald text-white flex items-center justify-center font-bold text-sm border border-gold/40 overflow-hidden">
-                                    <img src="${authorsProfile[tegalanArticle.author]?.photo || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80'}" class="w-full h-full object-cover">
+                                    <img src="${authorsProfile[tegalanArticle.author]?.photo || getInitialsAvatar(tegalanArticle.author)}" class="w-full h-full object-cover">
                                 </div>
                                 <span class="font-ui font-medium text-sm text-softgreen hover:text-white cursor-pointer transition relative z-20 underline decoration-gold/60 underline-offset-4" onclick="event.stopPropagation(); filterByAuthor('${tegalanArticle.author}')">${tegalanArticle.author}</span>
                                 <span class="mx-2 text-gold opacity-60">|</span>
@@ -1227,7 +1233,7 @@
                     </div>`;
             } else {
                 regularArticles.forEach(article => {
-                    const authorPhoto = authorsProfile[article.author]?.photo || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80';
+                    const authorPhoto = authorsProfile[article.author]?.photo || getInitialsAvatar(article.author);
                     gridSection.innerHTML += `
                         <article class="flex flex-col sm:flex-row gap-6 bg-transparent group cursor-pointer" onclick="openArticle(${article.id})">
                             <div class="sm:w-1/3 aspect-[4/3] sm:aspect-square md:aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 flex-shrink-0 relative">
@@ -1316,7 +1322,7 @@
                 `<span class="inline-flex items-center px-4 py-1.5 bg-gold text-white font-ui text-xs font-bold rounded-md uppercase tracking-wider mb-6 shadow-sm"><i data-lucide="star" class="w-3.5 h-3.5 mr-1.5 fill-current"></i> Ruang Tegalan</span>` : 
                 `<span class="inline-block px-4 py-1.5 bg-softgreen text-emerald font-ui text-xs font-bold rounded-md uppercase tracking-wider mb-6">${article.category}</span>`;
 
-            const authorPhoto = authorsProfile[article.author]?.photo || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80';
+            const authorPhoto = authorsProfile[article.author]?.photo || getInitialsAvatar(article.author);
 
             header.innerHTML = `
                 ${badgeHtml}
