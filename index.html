@@ -47,11 +47,11 @@
         }
         
         .fade-in {
-            animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -114,6 +114,12 @@
             -webkit-box-orient: vertical;  
             overflow: hidden;
         }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
 
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
@@ -158,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- Navigation -->
+            <!-- Navigation Menu -->
             <nav class="w-full overflow-x-auto pb-2 md:pb-1 hide-scrollbar">
                 <ul class="flex justify-start items-center gap-x-5 md:gap-x-8 gap-y-3 whitespace-nowrap md:whitespace-normal md:flex-wrap text-sm font-medium text-gray-600" id="nav-menu">
                     <li><button onclick="filterCategory('Semua', this)" class="nav-link active hover:text-emerald transition cursor-pointer">Beranda</button></li>
@@ -196,10 +202,12 @@
                 <!-- Dynamic Content -->
             </section>
 
+            <!-- TEGALAN SPOTLIGHT SECTION -->
             <section id="tegalan-spotlight" class="mb-14 hidden">
                 <!-- Dynamic Content -->
             </section>
 
+            <!-- HERO SECTION -->
             <section id="hero-section" class="mb-14">
                 <!-- Dynamic Content -->
             </section>
@@ -219,8 +227,10 @@
                     </div>
                 </div>
 
+                <!-- SIDEBAR -->
                 <aside class="lg:w-1/3 space-y-10">
                     
+                    <!-- Search Bar -->
                     <div class="bg-white rounded-xl p-1 shadow-sm border border-gray-100 flex items-center focus-within:ring-2 focus-within:ring-emerald/20 transition-all">
                         <input type="text" id="search-input" placeholder="Cari kajian..." oninput="handleSearch(this.value)" class="w-full pl-4 pr-2 py-3 outline-none text-sm bg-transparent">
                         <button class="p-3 bg-softgreen text-forest rounded-lg hover:bg-emerald hover:text-white transition cursor-pointer">
@@ -228,6 +238,7 @@
                         </button>
                     </div>
 
+                    <!-- Mutiara Hikmah Card -->
                     <div class="bg-forest text-white rounded-2xl p-8 shadow-lg relative overflow-hidden">
                         <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald rounded-full opacity-50 blur-2xl"></div>
                         
@@ -251,6 +262,7 @@
                         </div>
                     </div>
 
+                    <!-- Terpopuler Widget -->
                     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                         <h4 class="font-heading text-xl text-forest font-bold mb-6 pb-3 border-b border-gray-100">Terpopuler</h4>
                         <ul class="space-y-5" id="popular-sidebar">
@@ -262,7 +274,7 @@
             </div>
         </div>
 
-        <!-- ARTICLE VIEW (FULL SCREEN READER) -->
+        <!-- ARTICLE VIEW (READER MODE) -->
         <div id="article-view" class="fade-in hidden">
             
             <div class="max-w-4xl mx-auto mb-6">
@@ -285,7 +297,7 @@
                         <!-- Dynamic Content -->
                     </div>
                     
-                    <!-- Share Buttons Section -->
+                    <!-- Share Buttons -->
                     <div class="mt-12 pt-8 border-t border-gray-100 flex flex-wrap gap-3 items-center justify-between">
                         <div class="flex items-center gap-2 flex-wrap">
                             <span class="text-xs font-ui font-semibold text-gray-500 uppercase tracking-wider mr-2 flex items-center gap-1.5">
@@ -303,7 +315,7 @@
                         </div>
                     </div>
 
-                    <!-- REKOMENDASI ARTIKEL TERKAIT -->
+                    <!-- Rekomendasi Artikel Terkait -->
                     <div class="mt-16 pt-10 border-t border-gray-200">
                         <h3 class="font-heading text-2xl text-forest font-bold mb-6 flex items-center gap-2">
                             <i data-lucide="book-bookmark" class="w-5 h-5 text-emerald"></i> Artikel Lain yang Perlu Dibaca
@@ -578,7 +590,6 @@
         const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('id-ID', dateOptions);
 
-        // Helper untuk menghasilkan URL gambar inisial berdasarkan nama penulis
         function getInitialsAvatar(name) {
             const initials = name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
             return `https://placehold.co/400x400/0f5132/c5a059?text=${initials}`;
@@ -637,11 +648,43 @@
                 name: "A. Reza Wibowo",
                 role: "Editor & Penulis Fiksi",
                 photo: "https://raw.githubusercontent.com/firdausm301-svg/nderez.id/e459daa01e0d528afad298f49d233da71fcc1656/images/IMG-20260815-WA0000.jpg",
-                bio: "Salah satu pendiri editor nderez.id yang aktif menulis tentang kajian Keislaman dan sekarang sedan menempuh S2 Kajian Turats di UIII Depok"
+                bio: "Salah satu pendiri editor nderez.id yang aktif menulis tentang kajian Keislaman dan sekarang sedang menempuh S2 Kajian Turats di UIII Depok."
             }
         };
 
         const database = [
+            {
+                id: 21,
+                title: "Membaca Serat Sasmita di Era Modern",
+                category: "Tegalan",
+                date: "2 Oktober 2026",
+                author: "The Last Prince",
+                image: "https://raw.githubusercontent.com/firdausm301-svg/nderez.id/ae3bbab364693cb6fbb965ec58060c08000feb90/images/sasmita%20unya.jpg",
+                isHero: false,
+                isFeaturedTegalan: true,
+                content: `
+                    <p>Tegal, selain tumbuh infrastruktur ekonominya dengan menjamurnya kafe dan pusat pembelanjaan juga ternyata dari segi aspek literasi-akademik juga "sedikit" mendapat perhatian. Setidaknya hal ini membantu warga Tegal agar bukan hanya urusan perut dan atribut fisik saja, melainkan juga hak akal pikiran dan rohani tetap terjaga.</p>
+                    <p>Baru saja kemarin, dari tanggal 20-26 September komunitas seniman membuat pemeran seni "Interaksi" di Kopi Rumahan, Pagongan Kab. Tegal. Beralih ke Selatan, tepatnya di Taman GBN Slawi juga digelar acara Festival Literasi yang diisi berbagai kajian dan diskusi. Salah satu yang menarik perhatian saya adalah pembacaan manuskrip Serat Sasmita Hunya oleh Kang Syarif.</p>
+                    <p>Sebelum membahas isi naskah tersebut, perlu disampaikan bahwa penafsirnya, yaitu Kang Syarif itu termasuk sosok yang sangat langka. Tegal harus ribuan kali sujud syukur ada penduduknya yang punya skill membaca aksara jawa sebegitu native-nya. Bahkan ia juga memahami bahasa Jawa kuno yang ada di manuskrip-manuskrip lama.</p>
+                    <p>Saya berani mengatakan bahwa sarjana sastra jawa pun belum tentu mempunyai kemampuan tersebut. Lebih "laka-laka"-nya lagi, dia bukan terlahir dari ruang akademik formal; dia bukan lulusan sarjana sastra jawa, semuanya didapatkan secara otodidak dan kecintaannya pada kajian manuskrip jawa.</p>
+                    <p>Tidak berhenti sampai di situ, bahkan dia juga menulis beberapa buku dengan menggunakan full aksara jawa dengan bahasa Tegal. Saya sendiri dikasih dua bukunya yang menggunakan aksara jawa tersebut; (1) Serat Damar Ati yang membahas masalah karakter orang bekerja dan (2) Serat Adiwiyata yang membahas Surat Luqman ayat 12-19 yang dibuat tembang girisa dengan Bahasa Tegal untuk menyambut kelahiran anaknya Kang Syarif sendiri.</p>
+                    
+                    <h2>Serat Sasmita Hunya</h2>
+                    <p>Secara bahasa sasmita berarti tanda, dan hunya berarti bunyi. Sesuai dengan isinya, serat ini membahas bunyi-bunyi yang ada di telinga sebagai tanda akan terjadinya sesuatu. Bunyi tersebut bisa berupa suara “nging-nging” atau “bêk-bêk” yang punya maknanya masing-masing. Dengan demikian bisa dikatakan sebagai semiotika tubuh.</p>
+                    <p>Saya kutipkan dari naskahnya, “samangsa talingan kiwa mungêl: nging, punika ngalamat badhe kadhatêngan bingah. samangsa talingan têngên mungêl: nging, punika ngalamat badhe kadhatêngan sisah. samangsa talingan kiwa mungêl: bêk-bêk, punika ngalamat badhe kadhatêngan bingah, nanging jubêl, liripun: botên ngantos kalampahan bingah. samangsa talingan têngên mungêl: bêk-bêk, punika ngalamat badhe kadhatêngan sisah, nanging jubêl liripun botên ngantos kalampahan sisah.”</p>
+                    <p>Ketika telinga kiri berbunyi nging, maka tanda akan mendapat keberuntungan atau kebahagiaan. Ketika telinga kanan berbunyi nging, maka tanda akan mendapat keburukan. Ketika telinga kiri berbunyi bêk-bêk, maka tanda akan mendapat kebahagiaan namun tidak jadi. Ketika telingan kanan berbunyi bêk-bêk, maka tanda akan mendapat keburukan namun tidak jadi. Demikian terjemahan Bahasa Indonesianya.</p>
+                    <p>Jadi yang menjadi focus pada Serat Sasmita Hunya ini mebaca gejala gerakan tubuh yang dinamis dan spontan. Seperti getaran (kedutan) pada daerah tubuh tertentu, suara-suara aneh yang mendadak terdengar atau bayangan/visiun gaib yang datang tiba-tiba. Tanda-tanda ini tidak permanen, melainkan muncul secara spontan sebagai petunjuk spiritual atau alarm gaib bahwa akan ada peristiwa tertentu dalam waktu dekat.</p>
+                    <p>Dalam tradisi Islam, ada kitab al-Firasah karya Imam al-Razi yang membahas fisiognomi seseorang untuk mengetahui kepribadian atau watak seseorang. Bedanya jika al-Razi melihat tanda-tanda permanen yang ada dalam tubuh seseorang, seperti bentuk dahi, hidung dsb. Sedangkan Serat Sasmita Hunya ini membaca tanda spontan yang ada di tubuh tertentu untuk melihat apa yang akan terjadi.</p>
+                    
+                    <h2>Antara Pseudosains dan Ilmu Titen</h2>
+                    <p>Apakah bisa dikatakan apa yang ada dalam Serat ini termasuk pseudosains atau ilmu semu yang tidak memiliki pijakan ilmiah yang valid? Tentu bagi orang-orang modern seperti sekarang hal ini sangatlah irasional, bagaimana mungkin masa depan bisa dilihat hanya dengan tanda-tanda yang ada di tubuh? Narasi ini lahir, lagi-lagi karena terjebak pada batas sains modern yang hanya melihat aspek fisik saja, sehingga menafikan dimensi metafisik.</p>
+                    <p>Ilmu titen ala orang jawa dulu itu lahir bukan hanya melihat satu atau dua orang, melainkan dengan banyak sampel dan berulang-ulang sehingga melahirkan kesimpulan tertentu. Hal ini juga mirip dengan metode deduktif modern dengan mencari banyak sampel untuk mencari kesimpulan. Di tambah, orang-orang jawa dulu punya maqam spiritual yang tinggi yang memungkinkan weruh sedurunge winarah.</p>
+                    <p>Bagaimana kita menyikapinya? Saya kira, kita perlu melihat serat ini sebagai khazanah keilmuan jawa yang begitu kaya yang patut untuk dirawat agar generasi setelahnya tahu kemegahannya. Urusan apakah Kesimpulan yang didapatkan itu riil atau tidak, sebagai orang Islam hanya perlu menjalani hari ini semaksimal mungkin; <em>wa maa tadriy nafsun maadza taksibu ghoda</em>.</p>
+                    
+                    <hr class="my-6 border-gray-200">
+                    <p class="text-xs text-gray-400 italic">*artikel ini sudah pernah terbit (dengan penyesuaian) di koran Radar Tegal pada 28 September 2026.</p>
+                `
+            },
             {
                 id: 20,
                 title: "Peci yang Hilang",
@@ -722,7 +765,7 @@
                     <p>Bukan tanpa alasan, Nurhidayat meskipun ketika ditanya kenapa tidak mau mengibarkan bendera hanya beralasan sedang bekerja (lagi mencukur), sebenarnya dalam hati kecilnya dia sedang melakukan pemberontakan. Sebuah perlawanan simbolik sebagai wujud partisipasi protes yang tidak bisa dihadirinya di Jakarta untuk ikut demo.</p>
                     <p>James C. Scott dalam <em>Weapons of the Weak: Everyday Forms of Peasant Resistance</em> menjelaskan bentuk perlawanan yang dilakukan oleh kaum kecil seperti petani bukan dengan demonstrasi melainkan dengan perlawan kecil yang dilakukan sehari-hari.</p>
                     <p>Berbagai bentuk perlawan itu diantaranya dengan pura-pura bodoh atau tidak tahu, sabotase halus, pencurian kecil, desas-desus sampai pembangkangan seperti tidak ikut berpartisipasi pada seremoni atau intruksi penguasa lainnya. Hal ini sama dengan tidak dikibarkannya bendera Merah Putih yang dilakukan oleh Nurhidayat.</p>
-                    <p>Hanya saja perlawanan dengan model seperti ini seringkali tidak memberikan impact besar pada Pemerintah dan lebih banyak diabaikan, apalagi jika dilakukan oleh satu-dua orang saja. Akan berbeda jika dilakukan jika dilakukan secara kolektif dan masif yang bisa menyebabkan kemandekan sistemik baru Pemerintah akan ter-notice.</p>
+                    <p>Hanya saja perlawanan dengan model seperti ini seringkali tidak memberikan impact besar pada Pemerintah dan lebih banyak diabaikan, apalagi jika dilakukan oleh satu-dua orang saja. Akan berbeda jika dilakukan secara kolektif dan masif yang bisa menyebabkan kemandekan sistemik baru Pemerintah akan ter-notice.</p>
                     <p>Setidaknya yang dilakukan oleh Nurhidayat tersebut adalah bentuk peduli kita terhadap negara bahwa ketika negara tidak memerankan sesuai dengan tugasnya maka perlu diingatkan. Justru yang paling bahaya adalah ketika kita semua sudah masuk pada level apatis dan membiarkan Pemerintah semena-mena tanpa kontrol apa pun.</p>
                     
                     <h2>Seremoni Lomba Sebagai Escapism</h2>
@@ -846,7 +889,7 @@
                     <p>Sayangnya tidak semua orang bijak dalam mengemban sebuah tahta. Sebuah privilege bisa menjadi bumerang bagi pemiliknya seperti yang terjadi pada Gus ini. Berawal dari perlakuan khusus dan penghormatan membuat mereka terbuai dan menghilangkan empati serta kontrol diri. Mereka lupa bahwa mereka seharusnya menjadi panutan semua orang dan menjadi lentera bagi siapa saja yang membutuhkan cahaya.</p>
                     <p>Dalam kajian psikologi sosial fenomena ini bisa dijelaskan. Setidaknya dengan teori deindividuasi milik Philip Zimbardo (1933). Dalam karyanya <em>The Lucifer Effect: Understanding How Good Turn Evil</em> dijelaskan bahwa orang jika diberikan hak istimewa kekuasaan cenderung tidak berempati dan rasa superioritasnya meningkat. Untuk membuktikan hal ini, Zimbardo dalam <em>Interpersonal Dynamic in a Simulated Prison</em> meneliti beberapa orang yang diberikan peran untuk menjadi sipir dalam penjara dan dalam waktu singkat saja para sipir itu sudah menunjukkan perilaku abusif, dan agresif.</p>
                     <p>Memang Gus tersebut tidak sampai pada titik abusif dan agresif, yang menjadi titik poin di sini adalah adanya tindakan semena-mena dan menabrak batas norma yang berlaku. Sebagai orang yang menjadi panutan dan mempunyai jama’ah tentu perlu menjaga diri serta lebih bijak dalam segala hal.</p>
-                    <p>Jika melihat umur Gus tersebut terbilang masih muda, 24 tahun tentu pengendalian diri belum stabil. Dalam hal ini dijelaskan oleh Steinberg dan Blakemore dalam teori mereka; neurologi modern bahwa bagian otak remaja, khususnya <em>prefrontal cortex</em> (bagian yang berperan dalam pengambilan keputusan dan kontrol diri) belum sepenuhnya sempurna, sampai menginjak usia kurang lebih 25 tahun. Akibatnya lebih impulsif, emosional, mencari sensasi dan tidak memikirkan konsekuensi jangka panjang.</p>
+                    <p>Jika melihat umur Gus tersebut terbilang masih muda, 24 tahun tentu pengendalian diri belum stabil. Dalam hal ini dijelaskan oleh Steinberg dan Blakemore dalam teori mereka; neurologi modern bahwa bagian otak remaja, khususnya <em>prefrontal cortex</em> (bagian yang berperan dalam pengambilan keputusan dan kontrol diri) belum fully sempurna, sampai menginjak usia kurang lebih 25 tahun. Akibatnya lebih impulsif, emosional, mencari sensasi dan tidak memikirkan konsekuensi jangka panjang.</p>
                     <p>Dengan demikian, kembali lagi ke masing-masing individu. Gelar Gus sendiri pada hakikatnya hanya sebuah label, yang paling menentukan adalah karakter dari individu yang diberi label tersebut. Jika orang tersebut lebih bijak maka gelar Gus bisa menjadi keberkahan untuk dirinya. Sebaliknya, jika dengan label tersebut justru semakin melangit maka bisa dikatakan kutukan yang ia dapatkan.</p>
                     
                     <h2>Apakah Perlu Gelar Gus?</h2>
@@ -871,11 +914,11 @@
                     <p>Dalam kitab tersebut Al-Sulami menceritakan bahwa pada abad ke-3 H muncullah seorang sufi perempuan yang dijuluki Fathimah dari Naysapur, sebuah kota di Provinsi Razavi Khorasan, ibu kota dari Sahrestani Nishapur dan bekas ibu kota dari Khurasan, di timur laut Iran. Ia merupakan wanita sufi ahli makrifat yang diakui oleh dua tokoh sufi terkenal; Dzun Nun Al-Misri (246 H/861 M) dan Abu Yazid Al-Busthami (w. 261 H/875 M) yang terkenal dengan syatahat-syatahat-nya. Tidak ada wanita yang seperti dia di masanya, ia fokus beribadah di Mekkah, terkadang pergi ke Yerussalem, namun pasti kembali lagi ke Mekkah.</p>
                     
                     <h2>Pandangan tentang Tokoh-Tokoh Sufi Besar</h2>
-                    <p>Perlu kiranya ini saya sampaikan—untuk tidak terlalu terkesan meniru Gus Baha—bahwa Abu Yazid ini adalah cucu dari seorang Zoroaster yang kemudian masuk Islam, sekaligus anak dari seorang bangsawan dari Bistam. Al-Junaid memberi komentar tentangnya bahwa Abu Yazid di antara kami (para kaum sufi) ibarat malaikat Jibril di antara para malaikat. Merupakan pendiri aliran Malamatiyah dan dia zahid selama 30 tahun, meskipun kemudian meninggalkan hal ini karena ia sadar dan berkata: “Manusia yang paling terhijab dari Tuhan ada tiga macam; Pertama, zahid yang tertabiri oleh zuhudnya. Kedua, Abid yang tertabiri oleh ibadahnya. Ketiga, Ulama yang tertabiri oleh ilmunya."</p>
+                    <p>Perlu kiranya ini saya sampaikan bahwa Abu Yazid ini adalah cucu dari seorang Zoroaster yang kemudian masuk Islam, sekaligus anak dari seorang bangsawan dari Bistam. Al-Junaid memberi komentar tentangnya bahwa Abu Yazid di antara kami (para kaum sufi) ibarat malaikat Jibril di antara para malaikat. Merupakan pendiri aliran Malamatiyah dan dia zahid selama 30 tahun, meskipun kemudian meninggalkan hal ini karena ia sadar dan berkata: “Manusia yang paling terhijab dari Tuhan ada tiga macam; Pertama, zahid yang tertabiri oleh zuhudnya. Kedua, Abid yang tertabiri oleh ibadahnya. Ketiga, Ulama yang tertabiri oleh ilmunya."</p>
                     <p>Selanjutnya Dzun Nun Al-Misri merupakan seorang keturunan Nubia dan berasal dari kota Akhmim (Panopolis kuno) di Mesir, sekitar 350 mil di selatan Kairo. Dia juga seorang pengikut malamatiyah, dia memiliki reputasi sebagai seorang sufi yang membicarakan tentang doktrin keadaan-keadaan spiritual (ahwal) dan tingkatan-tingkatan spiritual (maqamat). Menurut Ibnu Jawzi, ia meninggal dunia di Giza, kemudian jenazahnya dibawa ke Fusthath untuk dimakamkan, karena takut jembatan-jembatan akan runtuh karena banyaknya orang yang akan menghadiri pemakaman beliau. Dia dimakamkan di pemakaman Ahl al-Ma’afir, Kairo Lama.</p>
                     
                     <h2>Dialog dan Pertemuan Spiritual</h2>
-                    <p>Di kisahkan, bahwa suatu hari Fathima ini memberikan hadiah kepada Dzun Nun Al-Misri, tapi ia menolaknya dan berkata: “Menerima hadiah dari sufi merupakan suatu kehinaan dan kelemahan”. Namun hal itu dijawab bijak lagi oleh Fathimah: “Tidak ada sufi di dunia ini yang lebih hina daripada orang yang meragukan motif sufi lainnya”. Secara harfiyah berarti Dzun Nun Al-Misri telah menaruh curiga pada orang yang telah memberinya, hal ini sesuai dengan pepatah Inggris <em>“On who looks a gift-horse in the mouth.”</em> (Orang yang memeriksa mulut kuda yang telah dihadiahkan kepadanya).</p>
+                    <p>Di kisahkan, bahwa suatu hari Fathima ini memberikan hadiah kepada Dzun Nun Al-Misri, tapi ia menolaknya dan berkata: “Menerima hadiah dari sufi merupakan suatu kehinaan dan kelemahan”. Namun hal itu dijawab bijak lagi oleh Fathimah: “Tidak ada sufi di dunia ini yang lebih hina daripada orang yang meragukan motif sufi lainnya”. Secara harfiyah berarti Dzun Nun Al-Misri telah menaruh curiga pada orang yang telah memberinya, hal ini sesuai dengan pepatah Inggris <em>“One who looks a gift-horse in the mouth.”</em> (Orang yang memeriksa mulut kuda yang telah dihadiahkan kepadanya).</p>
                     <p>Dzun Al-Misri meminta nasihat kepada Fathimah saat mereka kebetulan bertemu di Yerusalem: “Nasihatilah Aku.” Fathimah pun mengatakan kepadanya: “Biasakanlah bersikap jujur dan paksakan dirimu dalam tindakan dan kata-katamu. Allah Ta’ala berfirman: <em>Dan apabila perkara telah ditetapkan, maka akan lebih baik bagi mereka jika mereka tulus kepada Allah.</em> (Q.s. Muhammad/47:21).</p>
                     <p>Ahmad bin Muhammad bin Miqsam meriwayatkan secara ijazah dari Abu Muhammad Al-Husain bin Ali bin Khalaf dari Ibnu Malul (seorang syaikh tua yang bertemu dengan Dzun Nun Al-Misri), ia bertanya kepada Dzun Nun Al-Misri: “Siapakah orang yang paling utama yang pernah anda temui?” Dzun Nun menjawab: “Aku belum pernah bertemu sekalipun dengan orang yang paling utama kecuali dengan seorang wanita dari Naysapur yang kutemui di Mekkah bernama Fathimah. Dia biasa berbicara mengenai permasalahan-permasalahan yang berhubungan dengan makna Al-Qur’an dan ia menjelaskannya dengan cara yang mengagumkan”.</p>
                     <p>Abu Yazid Al-Busthami juga pernah bertemu dengan Fathimah dan ia mengatakan: “Sepanjang hidupku, aku baru menemukan seorang laki-laki sejati dan wanita sejati. Wanita itu adalah Fathimah dari Naysapur, ketika aku memberikan informasi tentang salah satu maqam-maqam spiritual, ia menerimanya seolah-olah sudah pernah mengalami semuanya.”</p>
@@ -941,7 +984,7 @@
                     
                     <p><strong>Artinya:</strong> “Dan mereka mengikuti apa yang dibaca oleh syaitan-syaitan pada masa kerajaan Sulaiman (dan mereka mengatakan bahwa Sulaiman itu mengerjakan sihir), padahal Sulaiman tidak kafir (tidak mengerjakan sihir), hanya syaitan-syaitan lah yang kafir (mengerjakan sihir). Mereka mengajarkan sihir kepada manusia dan apa yang diturunkan kepada dua orang malaikat di negeri Babil yaitu Harut dan Marut, sedang keduanya tidak mengajarkan (sesuatu) kepada seorangpun sebelum mengatakan: "Sesungguhnya kami hanya cobaan (bagimu), sebab itu janganlah kamu kafir". Maka mereka mempelajari dari kedua malaikat itu apa yang dengan sihir itu, mereka dapat menceraikan antara seorang (suami) dengan isterinya. Dan mereka itu (ahli sihir) tidak memberi mudharat dengan sihirnya kepada seorangpun, kecuali dengan izin Allah. Dan mereka mempelajari sesuatu yang tidak memberi mudharat kepadanya dan tidak memberi manfaat. Demi, sesungguhnya mereka telah meyakini bahwa barangsiapa yang menukarnya (kitab Allah) dengan sihir itu, tiadalah baginya keuntungan di akhirat, dan amat jahatlah perbuatan mereka menjual dirinya dengan sihir, kalau mereka mengetahui.”</p>
                     <p>Justru yang mengajari sihir kepada manusia itu setan, di antaranya bisa melihat hal gaib. Dalam ayat itu juga dijelaskan bahwa Allah menurunkan Harut Marut; ada yang mengatakan dia orang sholeh, ada juga yang menyatakan malaikat yang pada intinya keduanya mengajarkan sihir kepada manusia dalam rangka untuk meluruskan atau digunakan dalam kebenaran dan juga untuk membedakan antara sihir dan mukjizat, bisa dibilang apa yang dibawa oleh Harut Marut ini adalah ilmu putih. Sedangkan kalau setan mengajarkan sihir kepada manusia untuk menyakiti manusia lainnya, memisahkan suami dari keluarganya, memunculkan konflik dalam sebuah keluarga (al-Shabuni, 1980: 69-70)</p>
-                    <p>Sedangkan apakah santet ada sekarang? jawabannya tergantung, apakah masih ada orang yang mempertahankan ilmu itu dan mempraktikannya atau tidak. Yang jelas pada kenyataannya masih banyak orang-orang di zaman sekarang yang mengaku terkena santet karena dokter kebingungan dalam mendiagnosisnya. Saya pernah diceritain nenek saya bahwa dulu waktu masih muda ketika beliau di Jakarta ada yang tidak suka dengan usaha milik nenek saya dan mengirimkan (yang saya ingat) cindil atau anak tikus yang dimasukkan ke tangannya. Terlepas benar atau tidak cerita beliau, saya mengonfirmasinya pada ibu saya sendiri dan beliau mengiyakan bahwa nenek memang dulu pernah usaha di Jakarta.</p>
+                    <p>Sedangkan apakah santet ada sekarang? jawabannya tergantung, apakah masih ada orang yang mempertahankan ilmu itu dan mempraktikannya atau tidak. Yang jelas pada kenyataannya masih banyak orang-orang di zaman sekarang yang mengaku terkena santet karena dokter kebingungan dalam mendiagnosisnya. Saya pernah diceritain nenek saya bahwa dulu waktu masih muda ketika beliau di Jakarta ada yang tidak suka dengan usaha milik nenek saya dan mengirimkan cindil atau anak tikus yang dimasukkan ke tangannya. Terlepas benar atau tidak cerita beliau, saya mengonfirmasinya pada ibu saya sendiri dan beliau mengiyakan bahwa nenek memang dulu pernah usaha di Jakarta.</p>
                     <p>Dalam al-Shawi Hasyiyahnya Tafsir al-Jalalayn di surat al-Falaq ayat 3:</p>
                     
                     <blockquote class="border-l-4 border-gold pl-4 my-4 text-forest font-heading text-base leading-relaxed">
@@ -969,56 +1012,10 @@
                 author: "The Last Prince",
                 image: "https://raw.githubusercontent.com/firdausm301-svg/nderez.id/d5405bf983a01c9d67547338d0b1e1e8fe440420/images/ilustrasi-tegal.jpeg",
                 isHero: false,
-                isFeaturedTegalan: true,
-                content: `
-                    <p>Di akhir tahun kemarin, tepatnya 30 Desember 2025 saya mengunjungi Pak Atmo Tan Sidik di kediamannya di Mangkukusuman, Tegal Timur. Saya tertarik dengan agenda penerjemahan al-Qur’an ke Bahasa Tegal yang dilakukan oleh Pak Atmo beserta tim yang terdiri dari 7 orang.</p>
-                    <p>Penerjemahan ini sudah selesai 30 juz, namun masih ada dua tahap lagi untuk kemudian didistribusikan ke masyarakat. Tahap kedua setelah penerjemahan adalah verifikasi oleh expertise dan tahap terakhir verifikasi dari pihak LPMQ Kemenag.</p>
-                    <p>Posisi Pak Atmo tentu menjadi sangat sentral sebagai representasi akademisi-budayawan karena dalam proses penerjemahan al-Qur’an ke Bahasa Tegal tentu akan berkaitan dengan budaya karena bahasa sendiri merupakan bagian inti dari budaya.</p>
-                    <p>Menurutnya penerjemahan al-Qur’an ke bahasa daerah sudah ada sekitar 28 bahasa meliputi Banyumas, Cirebon, Bali, Gayo, Banjar, dll. Penerjemahan ini juga terinspirasi terjemah al-Qur’an Banyumas yang sudah terbit sejak 2015. Padahal Bahasa Tegal dan Bahasa Banyumas seperti saudara kandung (30/12/2025).</p>
-                    
-                    <h2>Penerjemahan sebagai Embrio Kajian al-Qur’an</h2>
-                    <p>Apa yang dilakukan oleh Pak Atmo dan tim tentu saja menjadi pintu gerbang kajian al-Qur’an di Tegal. Bisa dikatakan dalam upaya untuk memahami al-Qur’an yang paling dasar dan mudah adalah dengan terjemahannya. Namun demikian, terkadang dengan terjemahannya saja itu tidaklah cukup karena pembendaharaan kata dalam Bahasa Arab dan Bahasa Tegal atau bahasa-bahasa lainnya jauh berbeda. Belum lagi konteks ayat yang dibahas. Di situlah peran tafsir mulai bekerja.</p>
-                    <p>Sebagai langkah awal tentu ini patut diapresiasi. Penerjemahan ini akan membuka kajian al-Qur’an lebih jauh; tafsir Bahasa Tegal, metode baca al-Qur’an al-Syifa’ atau manuskrip-manuskrip di Tegal yang membicarakan al-Qur’an. Apalagi kajian manuskrip di Tegal dan sekitarnya mulai ramai diadakan seperti yang sering dilakukan oleh beberapa komunitas; Lingkar Aksara, RANU, Penaskah Tiga Daerah, dsb.</p>
-                    <p>Jika dilihat sekilas, prospek kajian al-Qur’an di Tegal begitu cemerlang. Asalkan para praktisi kajian al-Qur’an; bisa dari akademisi atau budayawan dan dari segala elemen ikut konsisten melestarikan kajian ini. Dalam hal ini, IBN Tegal sebagai satu-satunya kampus yang di dalamnya ada jurusan Ilmu Al-Qur’an dan Tafsir di daerah Tegal dan sekitarnya punya agenda besar terkait hal ini, mulai dari mengangkat living Qur’an di daerah Tegal, kajian al-Qur’an berbasis lokalitas, manuskrip, sampai tafsir Tegal.</p>
-                    <p>Ketika al-Qur’an didekati dengan Bahasa Tegal tentu akan menambah khazanah dinamika kajian al-Qur’an. Apalagi Bahasa Tegal mempunyai keunikan dan kekhasan sendiri dibandingkan dengan bahasa dengan dialek ngapak lainnya. Letak geografis yang berada di pesisir pantai Utara tentu menjadi representasi tersendiri dan melahirkan distingsi Banyumas yang berada di sisi pantai Selatan.</p>
-
-                    <h2>Bahasa Tegal sebagai Bahasa Ibu</h2>
-                    <p>Apakah ada efeknya ketika menerjemahkan al-Qur’an ke dalam Bahasa Tegal? Bukankah sudah ada Bahasa Indonesia sebagai bahasa nasional? Tentu saja ada efek yang sangat signifikan.</p>
-                    <p>Hal ini sudah dijelaskan oleh Pavlenko dalam <em>Emotions and Multilingualism</em> (2005), melalui teorinya <em>Mother Tongue Effect/Native Language Effect</em> bahwa bahasa pertama (L1) dapat diproses lebih dalam, lebih otomatis, dan lebih emosional dibandingkan bahasa kedua (L2). Bahasa ibu diperoleh melalui pengalaman emosional awal (keluarga, kasih sayang, konflik dan doa). Selain itu jejak memori bahasa ibu tersimpan dalam memori episodik dan afektif, bukan hanya kognitif.</p>
-                    <p>Sebagai bahasa yang pertama kali dikenal sejak kecil dan hidup dengan bahasa itu selama bertahun-tahun tentu membuat seperti ukiran batu yang tidak akan mudah hilang. Saya sendiri ketika membaca potongan ayat al-Baqarah ayat 75 yang sudah diterjemahkan ke dalam Bahasa Tegal begitu takjub.</p>
-                    <blockquote class="border-l-4 border-gold pl-4 my-4 italic text-forest font-heading text-lg">
-                        “Toli, apa kowen (muslimin) wis ngarep-arep ébén dhéwéké kabéh pracaya maring kowen, sakalé gonggomané dhéwéké kabéh wis krungu firman saka Gusti Allah, toli dhéwéké kabéh ngrubah sawisé paham, sakalé dhéwéké kabéh ngerti?”
-                    </blockquote>
-                    <p>Kalimat <em>afatathma’uuna</em> diterjemahkan dengan “Toli, apa kowen (muslimin) wis ngarep-arep...” sedangkan dalam bahasa Indonesia diterjemahkan dengan “Maka, apakah kamu (muslimin) sangat mengharapkan...” Bedanya di kata “toli” dan “maka”. Di sini terlihat bahasa Tegal lebih bisa mengakomodir daripada Bahasa Indonesia.</p>
-                    <p>Dalam ilmu nahwu, “fa” dalam kalimat fi’il mudhari’ tersebut menunjukkan maksud berurutan secara langsung. Kenapa di terjemah Bahasa Indonesia tidak menggunakan “terus” padahal kata tersebut lebih menekankan maksud berurutan secara langsung. Terjemahan Indonesia menggunakan “maka” juga karena sering kali “fa” diartikan maka sebagai jawab atau kata hubung seperti yang ada dalam kalimat majemuk bertingkat.</p>
-                    <p>Selain itu, konteks ayat ini terkesan Allah sedang menasihati kaum muslimin tentang golongan yang tidak beriman bahkan mereka mengubah firman Allah setelah memahaminya. Dengan bahasa Tegal tersebut, kesan nasihat itu begitu terasa, dibandingkan dengan Bahasa Indonesia yang terlihat flat.</p>
-                    <hr class="my-6 border-gray-200">
-                    <p class="text-xs text-gray-400 italic">Tulisan ini sudah pernah terbit di Koran Radar Tegal</p>
-                `
-            },
-            {
-                id: 8,
-                title: "Sajadah Panjang di Sepertiga Malam (Puisi)",
-                category: "Seni",
-                date: "10 Agustus 2026",
-                author: "Penyair Kelana",
-                image: "https://images.unsplash.com/photo-1564121211835-e88c852648ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                isHero: false,
-                isFeaturedTegalan: false,
-                content: `<p>Di hening malam yang merangkul bumi,<br>Sajadah panjang terbentang sepi.<br>Air mata jatuh membasahi kalbu,<br>Mencari rida Sang Penentu Waktu.</p><p>Setiap sujud adalah kepasrahan,<br>Mengetuk pintu arasy pemaafan, <br>Memohon ampunan di batas keheningan.</p>`
-            },
-            {
-                id: 10,
-                title: "Mimpi Terburuk (Cerpen)",
-                category: "Seni",
-                date: "8 Agustus 2026",
-                author: "Pujangga Tegal",
-                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                isHero: false,
                 isFeaturedTegalan: false,
                 content: `
                     <p>Kebanyakan orang lebih memilih mimpi daripada dunia nyata, karena dalam mimpi bisa bebas melakukan apa pun yang dunia nyata belum tentu bisa melakukannya. Tapi tidak bagi Dinda, baginya tidak ada mimpi indah, semua yang ditemukannya ketika tertidur adalah dunia buruk, menjijikkan dan kejam. Jika ditanya apa yang paling ditakutkan oleh Dinda di dunia ini, maka ia akan dengan lantang akan menjawab "mimpi".</p>
-                    <p>Entah sejak kapan Dinda terus bermimpi buruk. Kalau diingat-ingat menurutnya mimpi buruk yang terus datang itu mulai muncul ketika dia berada di bangku SMP. Ketika dia mulai berkomunikasi dengan teman-temannya atau siapa pun yang ia temui. Tidak jarang mimpi buruknya itu selalu membangunkannya di tengah malam dan ketika mencoba tidur kembali pun mimpi tersebut berlanjut. Sudah menjadi hal biasa bagi Dinda mimpi buruk sampai subuh.</p>
+                    <p>Entah sejak kapan Dinda terus bermimpi buruk. Kalau diingat-ingat menurutnya mimpi buruk yang terus datang itu muncul ketika dia berada di bangku SMP. Ketika dia mulai berkomunikasi dengan teman-temannya atau siapa pun yang ia temui. Tidak jarang mimpi buruknya itu selalu membangunkannya di tengah malam dan ketika mencoba tidur kembali pun mimpi tersebut berlanjut. Sudah menjadi hal biasa bagi Dinda mimpi buruk sampai subuh.</p>
                     <p>Orang tua Dinda pun sudah tahu kondisi yang dialami oleh anaknya ini, tapi setiap Dinda menceritakan apa yang ada dalam mimpinya pasti kedua orang tuanya tidak percaya dan selalu mengatakan kalau itu hanyalah bunga tidur. Padahal mimpi itu terkadang menjadi suatu tanda. Mimpi itu multidimensi bisa digunakan sebagai media untuk bertemu orang di masa lalu atau masa depan.</p>
                     <p>Dinda masih ingat betul ketika pertama kali mimpi buruk itu menyerang. Tepat pada pukul 00.00 Dinda berteriak dan bangun dari tidurnya dengan keadaan terengah-engah seperti maling yang sedang dikejar massa. Ibu dan Bapaknya pun panik langsung datang ke kamarnya.</p>
                     <p>"Kenapa Dinda? Kamu mimpi apa sampai kaya gini?"</p>
@@ -1077,7 +1074,7 @@
                     <p>Membahas keluarga di rumah, kami hanya ada bapak dan aku. Setiap pagi kami membagi tugas rumah. Ada yang nyapu, dan ada yang tidur lagi, melanjutkan sisa tidur waktu malam. Uniknya, kami tak pernah bertengkar tentang persoalan tugas pagi itu. Barangkali bagi kita, hidup berdua sudah cukup susah, bagaimana jika ditambah percekcokan lagi, malah makin tambah tak karu-karuan.</p>
                     <p>Di setiap pagi, aku yang selalu membelikan bapak sarapan, dan tentunya juga buat diriku sendiri. Kalo sarapan, itu pasti tugasku. Karena bapak akan sibuk membetulkan motor vespanya, entah dengan memanaskanya atau mencucinya agar mengkilap. Aku berangkat sekolah dia berangkat kerja. Selalu seperti itu alur kita di pagi buta.</p>
                     <p>Di sekolah, adalah waktu yang paling aku tunggu. Karena gadis pujaanku hanya bisa ku pandangi lama-lama jika berada di sekolah, apalagi kelasnya sama. Aku duduk di belakang, dia di depan. Di situ aku akan selalu mengawasi gerak geriknya, bahkan jika dia ke toilet, aku akan pura-pura izin pak guru ke toilet juga. Sandiwara ini sulit, namun karena kekuatan cinta itu maha dasyat, maka aku bisa saja menikmatinya tanpa masalah apapun. Mengalir begitu saja. Dan hanya cinta yang membuatku berhenti berfikir keras.</p>
-                    <p>Oh iya, namanya Clara, panggilanya ‘ra’. Sedangkan namaku hampir sama denganya, Rendro dipanggil ‘re’. aku kira dengan ketidaksengajaan dalam kemiripan nama ini ada bau-bau jodoh tak terduga. Tetapi toh Tuhan, tidak pernah salah dalam menentukan, soalya jika salah siapa yang akan bertanggung jawab?.
+                    <p>Oh iya, namanya Clara, panggilanya ‘ra’. Sedangkan namaku hampir sama denganya, Rendro dipanggil ‘re’. aku kira dengan ketidaksengajaan dalam kemiripan nama ini ada bau-bau jodoh tak terduga. Tetapi toh Tuhan, tidak pernah salah dalam menentukan, soalya jika salah siapa yang akan bertanggung jawab?.</p>
                     <p>Selain lugu, dia juga punya gingsul yang tidak semua gadis lain punya. Belakangan, aku mengerti, kenapa? Banyak kaum buaya yang mengincar ra dari jarak jauh. Alih-alih di tembak, melainkan banyak yang berniat membunuhnya. Di sekolah kami, memang lazim membunuh sesorang yang dirasa lebih baik dari pasanganya. Karena iri dengki. Bahkan untuk tumbal agar pacarnya semakin cantik jelita. Jadi, sudah menjadi adat, untuk mengorbankan satu nyawa demi kecantikan.</p>
                     <p>Suatu hari, bapak terkejut melihat gadis mungil yang terluka serius itu. Benar, Clara diincar karena kemanisannya mengalahkan banyak gadis lain, terutama yang punya pacar posesif. Berkat bapak, Clara tidak jadi meninggal dengan sadis, yaitu dipaksa meminum racun tikus serta di tusuk-tusuk jarinya -sudah seperti jailangkung yang diakupuntur oleh praktisi cina- Karena bapak mewarisi bakat alami penyembuhan dari nenek.</p>
                     <p>Dan ternyata Clara membalas cintaku. Mudah begitu saja. Awalnya dia merasa tidak enak dengan bantuanku kala itu, yang seandainya jika bukan karena aku dan bapakku, mungkin dia sudah beristirahat secara permanen di kuburan. Dan berkat cintanya, pikiran kacauku sudah mulai membaik dengan perlahan.</p>
@@ -1533,6 +1530,16 @@
         function closeKontakRedaksiModal() {
             document.getElementById('kontak-redaksi-modal').classList.add('hidden');
         }
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeKirimTulisanModal();
+                closeTentangKamiModal();
+                closePedomanSiberModal();
+                closeKontakRedaksiModal();
+            }
+        });
 
         function initApp() {
             renderHome();
